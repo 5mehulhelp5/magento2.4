@@ -8,6 +8,10 @@ use Magento\Tests\NamingConvention\true\string;
 
 class Restaurant extends AbstractModel implements RestaurantInterface
 {
+    protected function _construct()
+    {
+        $this->_init(\Stoyanov\Restaurants\Model\ResourceModel\Restaurant::class);
+    }
     public const string ENTITY_ID = 'id';
     public const string NAME = 'name';
     public const string CAPACITY = 'capacity';

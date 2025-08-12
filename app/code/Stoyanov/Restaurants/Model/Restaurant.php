@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurants\Model;
 
 use Magento\Framework\Model\AbstractModel;
-use Magento\Tests\NamingConvention\true\string;
 
 class Restaurant extends AbstractModel implements RestaurantInterface
 {

@@ -1,6 +1,8 @@
 <?php
 
-namespace Stoyanov\Restaurants\Model;
+namespace Stoyanov\Restaurants\Api\Data;
+
+use Stoyanov\Restaurants\Model\Restaurant;
 
 interface RestaurantInterface
 {

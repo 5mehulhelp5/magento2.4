@@ -38,18 +38,18 @@ class InstallSchema implements InstallSchemaInterface
                     'Capacity'
                 )
                 ->addColumn(
-                    'created_at',
-                    Table::TYPE_TIMESTAMP,
-                    null,
-                    ['nullable' => false, 'default' => Table::TIMESTAMP_INIT],
-                    'Created At'
-                )
-                ->addColumn(
                     'location',
                     Table::TYPE_TEXT,
                     255,
                     ['nullable' => false],
                     'Location'
+                )
+                ->addColumn(
+                    'created_at',
+                    Table::TYPE_DATETIME,
+                    null,
+                    ['nullable' => true],
+                    'Created Date'
                 )
                 ->setComment('restaurants Table');
             $setup->getConnection()->createTable($table);

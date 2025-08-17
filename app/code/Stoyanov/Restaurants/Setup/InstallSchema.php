@@ -17,11 +17,11 @@ class InstallSchema implements InstallSchemaInterface
                 $setup->getTable('restaurants')
             )
                 ->addColumn(
-                    'id',
+                    'entity_id',
                     Table::TYPE_INTEGER,
                     null,
                     ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
-                    'ID'
+                    'entity_id'
                 )
                 ->addColumn(
                     'name',

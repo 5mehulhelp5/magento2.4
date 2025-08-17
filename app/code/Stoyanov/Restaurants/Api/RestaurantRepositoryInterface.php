@@ -2,12 +2,17 @@
 
 namespace Stoyanov\Restaurants\Api;
 
-use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant as RestaurantResource;
+use Stoyanov\Restaurants\Model\Restaurant;
+use Stoyanov\Restaurants\Model\RestaurantInterface;
 
 interface RestaurantRepositoryInterface
 {
-    public function save(RestaurantInterface $restaurant): RestaurantInterface;
+    /**
+     * @param Restaurant $restaurant
+     * @return Restaurant
+     */
+    public function save(Restaurant $restaurant): Restaurant;
 
     public function getById(int $id): RestaurantInterface;
 

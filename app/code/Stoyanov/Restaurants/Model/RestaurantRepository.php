@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurants\Model;
 
-use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 use Stoyanov\Restaurants\Api\RestaurantRepositoryInterface;
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant as RestaurantResource;
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant\CollectionFactory as RestaurantCollectionFactory;
 
 class RestaurantRepository implements RestaurantRepositoryInterface
 {
-
     public function __construct(
         private RestaurantFactory $restaurantFactory,
         private RestaurantResource $restaurantResource,
@@ -19,7 +17,11 @@ class RestaurantRepository implements RestaurantRepositoryInterface
     ) {
     }
 
-    public function save(RestaurantInterface $restaurant): RestaurantInterface
+    /**
+     * @param Restaurant $restaurant
+     * @return Restaurant
+     */
+    public function save(Restaurant $restaurant): Restaurant
     {
         try {
             $this->restaurantResource->save($restaurant);

@@ -1,0 +1,21 @@
+<p>
+    <a href="<?= $this->getUrl('stoyanov/restaurant/index') ?>"><?= __('Our Restaurants') ?></a>
+</p>
+<h1><?= __('Create a new restaurant') ?></h1>
+
+<form action="<?= $this->getUrl('stoyanov/restaurant/create') ?>" method="post" data-mage-init='{"validation":{}}' enctype="multipart/form-data">
+    <input type="hidden" name="form_key" value="<?= $this->getFormKey(); ?>" />
+    <p>
+        <label><?= __('Name') ?></label>
+        <input required="true" name="name" type="text">
+    </p>
+    <p>
+        <label><?= __('Capacity') ?></label>
+        <input required="true" name="capacity" type="number">
+    </p>
+    <p>
+        <label><?= __('Location') ?></label>
+        <input required="true" name="location" type="text">
+    </p>
+    <input type="submit" value="Create">
+</form>

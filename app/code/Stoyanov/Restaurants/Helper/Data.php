@@ -37,9 +37,7 @@ class Data extends AbstractHelper
     private function calculateEntityIdValue($countRestaurants): int
     {
         $entityId = $countRestaurants + 1;
-        if ($countRestaurants === 0) {
-            $entityId = 1;
-        }
+        if ($countRestaurants === 0) $entityId = 1;
         return $entityId;
     }
 

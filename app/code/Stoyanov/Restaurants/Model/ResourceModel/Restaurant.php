@@ -9,6 +9,6 @@ class Restaurant extends AbstractDb
 {
     protected function _construct()
     {
-        $this->_init('restaurants', 'id');
+        $this->_init('restaurants', 'entity_id');
     }
 }

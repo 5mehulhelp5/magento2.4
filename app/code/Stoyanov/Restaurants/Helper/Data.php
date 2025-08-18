@@ -6,9 +6,9 @@ namespace Stoyanov\Restaurants\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
-
 use Stoyanov\Restaurants\Api\RestaurantRepositoryInterface;
 use Stoyanov\Restaurants\Model\RestaurantBuilder;
+use Stoyanov\Restaurants\Model\Restaurant;
 
 class Data extends AbstractHelper
 {
@@ -56,5 +56,15 @@ class Data extends AbstractHelper
             ->build();
         $response = $this->restaurantRepository->save($restaurant);
         return $response;
+    }
+
+    /**
+     * @param $id
+     * @return Restaurant
+     */
+    public function getRestaurant($id): Restaurant
+    {
+        return $this->restaurantRepository->getById((int) $id);
+
     }
 }

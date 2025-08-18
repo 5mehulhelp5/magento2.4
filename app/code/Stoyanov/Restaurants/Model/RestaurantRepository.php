@@ -31,11 +31,11 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant;
     }
 
-    public function getById(int $id): RestaurantInterface
+    public function getById(int $id): Restaurant
     {
         $restaurant = $this->restaurantFactory->create();
         $this->restaurantResource->load($restaurant, $id);
-        if (!$restaurant->getId()) {
+        if (!$restaurant->getEntityId()) {
             throw new NoSuchEntityException(__('Restaurant with ID "%1" does not exist.', $id));
         }
         return $restaurant;

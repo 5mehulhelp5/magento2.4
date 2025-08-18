@@ -14,7 +14,7 @@ interface RestaurantRepositoryInterface
      */
     public function save(Restaurant $restaurant): Restaurant;
 
-    public function getById(int $id): RestaurantInterface;
+    public function getById(int $id): Restaurant;
 
     public function delete(RestaurantInterface $restaurant): bool;
 

@@ -25,9 +25,11 @@ class Update extends Action
     public function execute()
     {
         if ($this->_request->isPost()) {
-//            $response = $this->helper->createFlight($this->_request);
-            if (!empty($response['id'])) {
-                $this->_redirect('stoyanov/restaurant/edit', ['id' => $response['id']]);
+            $data = $this->_request->getParams();
+
+            $response = $this->data->updateRestaurant($data);
+            if (!empty($response['entity_id'])) {
+                $this->_redirect('stoyanov/restaurant/edit', ['id' => $response['entity_id']]);
                 $this->messageManager->addSuccess(__('Restaurant is updated!'));
             }
         }

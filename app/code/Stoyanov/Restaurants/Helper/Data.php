@@ -65,6 +65,18 @@ class Data extends AbstractHelper
     public function getRestaurant($id): Restaurant
     {
         return $this->restaurantRepository->getById((int) $id);
+    }
 
+    public function updateRestaurant($data): mixed
+    {
+        $restaurant = $this->builder
+            ->setId((int) $data["id"])
+            ->setName($data["name"])
+            ->setCapacity((int) $data["capacity"])
+            ->setLocation($data["location"])
+            ->setCreatedAt($this->timezone->date()->format('Y-m-d H:i:s'))
+            ->build();
+        $response = $this->restaurantRepository->save($restaurant);
+        return $response;
     }
 }

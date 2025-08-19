@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurants\Model;
 
-class RestaurantBuilder
+use Stoyanov\Restaurants\Api\RestaurantBuilderInterface;
+
+class RestaurantBuilder implements RestaurantBuilderInterface
 {
     protected $restaurantFactory;
 

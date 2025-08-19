@@ -32,7 +32,7 @@ class Create extends Action
         if ($this->_request->isPost()) {
             $data = $this->_request->getParams();
             $data["id"] = $this->calculateEntityIdValue($this->restaurantRepository->getList()->getSize());
-            $response = $this->data->createRestaurant($data);
+            $response = $this->data->createOrUpdateRestaurant($data);
             if (!empty($response['entity_id'])) {
                 $this->messageManager->addSuccess(__('A new restaurant is created!'));
             }

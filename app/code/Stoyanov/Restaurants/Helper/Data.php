@@ -33,7 +33,7 @@ class Data extends AbstractHelper
     /**
      * @return mixed
      */
-    public function createRestaurant($data): mixed
+    public function createOrUpdateRestaurant($data): mixed
     {
         $restaurant = $this->buildRestaurant($data);
         $response = $this->restaurantRepository->save($restaurant);
@@ -47,13 +47,6 @@ class Data extends AbstractHelper
     public function getRestaurant($id): Restaurant
     {
         return $this->restaurantRepository->getById((int) $id);
-    }
-
-    public function updateRestaurant($data): mixed
-    {
-        $restaurant = $this->buildRestaurant($data);
-        $response = $this->restaurantRepository->save($restaurant);
-        return $response;
     }
 
     /**

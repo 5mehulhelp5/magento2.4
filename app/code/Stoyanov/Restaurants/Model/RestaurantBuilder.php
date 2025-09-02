@@ -43,8 +43,6 @@ class RestaurantBuilder implements RestaurantBuilderInterface
     public function build(): Restaurant
     {
         /** @var Restaurant $restaurant */
-//        var_dump($this->data);
-//        die;
         $restaurant = $this->restaurantFactory->create();
         $restaurant->setData($this->data);
         $this->data = []; // reset builder for reuse

@@ -6,8 +6,6 @@ use Stoyanov\Restaurants\Model\Restaurant;
 
 interface RestaurantBuilderInterface
 {
-    public function setId(int $id): \Stoyanov\Restaurants\Model\RestaurantBuilder;
-
     public function setName(string $name): \Stoyanov\Restaurants\Model\RestaurantBuilder;
 
     public function setCapacity(int $capacity): \Stoyanov\Restaurants\Model\RestaurantBuilder;

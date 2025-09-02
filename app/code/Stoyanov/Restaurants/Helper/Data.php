@@ -56,7 +56,6 @@ class Data extends AbstractHelper
     private function buildRestaurant($data): Restaurant
     {
         return $this->builder
-            ->setId((int) $data["id"])
             ->setName($data["name"])
             ->setCapacity((int) $data["capacity"])
             ->setLocation($data["location"])

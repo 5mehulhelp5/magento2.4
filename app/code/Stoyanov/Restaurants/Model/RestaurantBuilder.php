@@ -16,12 +16,6 @@ class RestaurantBuilder implements RestaurantBuilderInterface
         $this->restaurantFactory = $restaurantFactory;
     }
 
-    public function setId(int $id): self
-    {
-        $this->data['entity_id'] = $id;
-        return $this;
-    }
-
     public function setName(string $name): self
     {
         $this->data['name'] = $name;
@@ -49,6 +43,8 @@ class RestaurantBuilder implements RestaurantBuilderInterface
     public function build(): Restaurant
     {
         /** @var Restaurant $restaurant */
+//        var_dump($this->data);
+//        die;
         $restaurant = $this->restaurantFactory->create();
         $restaurant->setData($this->data);
         $this->data = []; // reset builder for reuse

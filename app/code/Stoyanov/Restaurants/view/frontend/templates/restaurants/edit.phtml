@@ -12,7 +12,7 @@ $restaurant = $block->getRestaurant();
 
     <?= $block->getBlockHtml('formkey'); ?> <!-- CSRF protection -->
 
-    <input type="hidden" name="id" value="<?= $restaurant->getEntityId() ?>" />
+    <input type="hidden" name="entity_id" value="<?= $restaurant->getEntityId() ?>" />
 
     <div>
         <label for="name">Name:</label>

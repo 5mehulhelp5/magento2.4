@@ -41,7 +41,7 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant;
     }
 
-    public function delete(RestaurantInterface $restaurant): bool
+    public function delete(Restaurant $restaurant): bool
     {
         try {
             $this->restaurantResource->delete($restaurant);

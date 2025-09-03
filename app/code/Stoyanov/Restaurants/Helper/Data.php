@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurants\Helper;
 
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\App\Helper\Context;
+use Magento\Framework\App\Helper\{Context, AbstractHelper};
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
-use Stoyanov\Restaurants\Api\RestaurantBuilderInterface;
-use Stoyanov\Restaurants\Api\RestaurantRepositoryInterface;
+use Stoyanov\Restaurants\Api\{RestaurantBuilderInterface, RestaurantRepositoryInterface};
 use Stoyanov\Restaurants\Model\Restaurant;
 
 class Data extends AbstractHelper
@@ -33,8 +31,9 @@ class Data extends AbstractHelper
     /**
      * @return mixed
      */
-    public function createOrUpdateRestaurant($data): mixed
+    function createOrUpdateRestaurant($data): mixed
     {
+        if (!empty($data["id"])) $this->deleteRestaurant($data["id"]);
         $restaurant = $this->buildRestaurant($data);
         $response = $this->restaurantRepository->save($restaurant);
         return $response;
@@ -44,7 +43,7 @@ class Data extends AbstractHelper
      * @param $id
      * @return Restaurant
      */
-    public function getRestaurant($id): Restaurant
+    function getRestaurant($id): Restaurant
     {
         return $this->restaurantRepository->getById((int) $id);
     }
@@ -62,4 +61,15 @@ class Data extends AbstractHelper
             ->setCreatedAt($this->timezone->date()->format('Y-m-d H:i:s'))
             ->build();
     }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    function deleteRestaurant($id): bool
+    {
+        return $this->restaurantRepository->deleteById((int) $id);
+    }
+
+
 }

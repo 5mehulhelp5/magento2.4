@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurants\Helper;
 
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\App\Helper\Context;
+use Magento\Framework\App\Helper\{Context, AbstractHelper};
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
-use Stoyanov\Restaurants\Api\RestaurantBuilderInterface;
-use Stoyanov\Restaurants\Api\RestaurantRepositoryInterface;
+use Stoyanov\Restaurants\Api\{RestaurantBuilderInterface, RestaurantRepositoryInterface};
 use Stoyanov\Restaurants\Model\Restaurant;
 
 class Data extends AbstractHelper

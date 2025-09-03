@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurants\Controller\Restaurant;
 
-use Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\Action\{Action, Context};
 use Magento\Framework\View\Result\PageFactory;
 
 class Edit extends Action

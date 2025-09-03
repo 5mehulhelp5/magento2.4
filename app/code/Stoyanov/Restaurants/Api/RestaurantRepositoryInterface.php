@@ -4,7 +4,6 @@ namespace Stoyanov\Restaurants\Api;
 
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant as RestaurantResource;
 use Stoyanov\Restaurants\Model\Restaurant;
-use Stoyanov\Restaurants\Model\RestaurantInterface;
 
 interface RestaurantRepositoryInterface
 {
@@ -16,7 +15,7 @@ interface RestaurantRepositoryInterface
 
     public function getById(int $id): Restaurant;
 
-    public function delete(RestaurantInterface $restaurant): bool;
+    public function delete(Restaurant $restaurant): bool;
 
     public function deleteById(int $id): bool;
 

@@ -18,6 +18,11 @@
             <p><?= __('Created at') ?></p>
             <p><b><?= $restaurant->getCreatedAt() ?></b></p>
         <?php endif; ?>
+        <p>
+            <a href="<?= $this->getUrl('stoyanov/restaurant/edit', ['id' => $restaurant->getId()]) ?>">
+            <?= __('Edit') ?>
+            </a>
+        </p>
     -------------------------------------------------------
     <?php endforeach; ?>
     <p>

@@ -4,7 +4,7 @@
 <h1><?= __("Restaurant's edit page") ?></h1>
 <?php
 /** @var $block \Stoyanov\Restaurants\Block\Restaurant\Edit */
-$restaurant = $block->getRestaurant();
+    $restaurant = $block->getRestaurant();
 ?>
 <form action="<?= $block->escapeUrl($block->getFormAction()) ?>"
       method="post"

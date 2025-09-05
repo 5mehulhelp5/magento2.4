@@ -29,7 +29,7 @@ class Edit extends Template
     public function getRestaurant($id = null)
     {
         if (!$id) {
-            $id = $this->getRequest()->getParam('id');
+            $id = (int) $this->getRequest()->getParam('id');
         }
         $restaurant = $this->restaurantHelper->getRestaurant($id);
         if ($id) {

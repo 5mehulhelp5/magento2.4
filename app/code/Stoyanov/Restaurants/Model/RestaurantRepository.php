@@ -7,6 +7,7 @@ namespace Stoyanov\Restaurants\Model;
 use Stoyanov\Restaurants\Api\RestaurantRepositoryInterface;
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant as RestaurantResource;
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant\CollectionFactory as RestaurantCollectionFactory;
+use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 
 class RestaurantRepository implements RestaurantRepositoryInterface
 {
@@ -18,10 +19,10 @@ class RestaurantRepository implements RestaurantRepositoryInterface
     }
 
     /**
-     * @param Restaurant $restaurant
-     * @return Restaurant
+     * @param RestaurantInterface $restaurant
+     * @return RestaurantInterface
      */
-    public function save(Restaurant $restaurant): Restaurant
+    public function save(RestaurantInterface $restaurant): RestaurantInterface
     {
         try {
             $this->restaurantResource->save($restaurant);
@@ -31,7 +32,7 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant;
     }
 
-    public function getById(int $id): Restaurant
+    public function getById(int $id): RestaurantInterface
     {
         $restaurant = $this->restaurantFactory->create();
         $this->restaurantResource->load($restaurant, $id);
@@ -41,7 +42,7 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant;
     }
 
-    public function delete(Restaurant $restaurant): bool
+    public function delete(RestaurantInterface $restaurant): bool
     {
         try {
             $this->restaurantResource->delete($restaurant);

@@ -3,19 +3,19 @@
 namespace Stoyanov\Restaurants\Api;
 
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant as RestaurantResource;
-use Stoyanov\Restaurants\Model\Restaurant;
+use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 
 interface RestaurantRepositoryInterface
 {
     /**
-     * @param Restaurant $restaurant
-     * @return Restaurant
+     * @param RestaurantInterface $restaurant
+     * @return RestaurantInterface
      */
-    public function save(Restaurant $restaurant): Restaurant;
+    public function save(RestaurantInterface $restaurant): RestaurantInterface;
 
-    public function getById(int $id): Restaurant;
+    public function getById(int $id): RestaurantInterface;
 
-    public function delete(Restaurant $restaurant): bool;
+    public function delete(RestaurantInterface $restaurant): bool;
 
     public function deleteById(int $id): bool;
 

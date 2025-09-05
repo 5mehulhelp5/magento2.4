@@ -2,17 +2,9 @@
 
 namespace Stoyanov\Restaurants\Api;
 
-use Stoyanov\Restaurants\Model\Restaurant;
+use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 
 interface RestaurantBuilderInterface
 {
-    public function setName(string $name): \Stoyanov\Restaurants\Model\RestaurantBuilder;
-
-    public function setCapacity(int $capacity): \Stoyanov\Restaurants\Model\RestaurantBuilder;
-
-    public function setLocation(string $location): \Stoyanov\Restaurants\Model\RestaurantBuilder;
-
-    public function setCreatedAt(string $createdAt): \Stoyanov\Restaurants\Model\RestaurantBuilder;
-
-    public function build(): Restaurant;
+    public function build(array $data): RestaurantInterface;
 }

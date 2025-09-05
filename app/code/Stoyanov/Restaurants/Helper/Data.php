@@ -6,7 +6,7 @@ namespace Stoyanov\Restaurants\Helper;
 use Magento\Framework\App\Helper\{Context, AbstractHelper};
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Stoyanov\Restaurants\Api\{RestaurantBuilderInterface, RestaurantRepositoryInterface};
-use Stoyanov\Restaurants\Model\Restaurant;
+use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 
 class Data extends AbstractHelper
 {
@@ -29,47 +29,42 @@ class Data extends AbstractHelper
     }
 
     /**
+     * @param array $data
      * @return mixed
      */
-    function createOrUpdateRestaurant($data): mixed
+    function createOrUpdateRestaurant(array $data): mixed
     {
-        if (!empty($data["id"])) $this->deleteRestaurant($data["id"]);
+        if (!empty($data["id"])) $this->deleteRestaurant((int) $data["id"]);
         $restaurant = $this->buildRestaurant($data);
         $response = $this->restaurantRepository->save($restaurant);
         return $response;
     }
 
     /**
-     * @param $id
-     * @return Restaurant
+     * @param int $id
+     * @return RestaurantInterface
      */
-    function getRestaurant($id): Restaurant
+    function getRestaurant(int $id): RestaurantInterface
     {
-        return $this->restaurantRepository->getById((int) $id);
+        return $this->restaurantRepository->getById($id);
     }
 
     /**
-     * @param $data
-     * @return Restaurant
+     * @param array $data
+     * @return RestaurantInterface
      */
-    private function buildRestaurant($data): Restaurant
+    private function buildRestaurant(array $data): RestaurantInterface
     {
         return $this->builder
-            ->setName($data["name"])
-            ->setCapacity((int) $data["capacity"])
-            ->setLocation($data["location"])
-            ->setCreatedAt($this->timezone->date()->format('Y-m-d H:i:s'))
-            ->build();
+            ->build($data);
     }
 
     /**
-     * @param $id
+     * @param int $id
      * @return bool
      */
-    function deleteRestaurant($id): bool
+    function deleteRestaurant(int $id): bool
     {
-        return $this->restaurantRepository->deleteById((int) $id);
+        return $this->restaurantRepository->deleteById($id);
     }
-
-
 }

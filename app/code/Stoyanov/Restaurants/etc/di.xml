@@ -7,4 +7,6 @@
                 type="Stoyanov\Restaurants\Model\RestaurantBuilder"/>
     <preference for="Stoyanov\Restaurants\Api\RestaurantRepositoryInterface"
       type="Stoyanov\Restaurants\Model\RestaurantRepository"/>
+    <preference for="Stoyanov\Restaurants\Api\Data\RestaurantInterface"
+                type="Stoyanov\Restaurants\Model\Restaurant" />
 </config>

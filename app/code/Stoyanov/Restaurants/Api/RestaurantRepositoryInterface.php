@@ -6,6 +6,7 @@ use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SearchResults;
 interface RestaurantRepositoryInterface
 {
     /**
@@ -42,10 +43,9 @@ interface RestaurantRepositoryInterface
      */
     public function deleteById(int $id): bool;
 
-
     /**
      * @param SearchCriteriaInterface $searchCriteria
-     * @return RestaurantInterface
+     * @return SearchResults
      */
-    public function getList(SearchCriteriaInterface $searchCriteria);
+    public function getSearchResultsList(SearchCriteriaInterface $searchCriteria): SearchResults;
 }

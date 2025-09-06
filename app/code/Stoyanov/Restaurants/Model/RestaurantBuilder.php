@@ -8,13 +8,8 @@ use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 
 class RestaurantBuilder implements RestaurantBuilderInterface
 {
-    protected $restaurantFactory;
-
-    protected $data = [];
-
-    public function __construct(RestaurantFactory $restaurantFactory)
+    public function __construct(protected RestaurantFactory $restaurantFactory)
     {
-        $this->restaurantFactory = $restaurantFactory;
     }
 
     public function build(array $data): RestaurantInterface

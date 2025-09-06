@@ -7,25 +7,19 @@ use Magento\Framework\App\Helper\{Context, AbstractHelper};
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Stoyanov\Restaurants\Api\{RestaurantBuilderInterface, RestaurantRepositoryInterface};
 use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
+use Stoyanov\Restaurants\Model\ResourceModel\Restaurant\CollectionFactory;
+use Stoyanov\Restaurants\Model\ResourceModel\Restaurant;
 
 class Data extends AbstractHelper
 {
-    private $restaurantRepository;
-    private $timezone;
-
-    private $builder;
-
     public function __construct(
-        Context                       $context,
-        RestaurantRepositoryInterface $restaurantRepository,
-        TimezoneInterface             $timezone,
-        RestaurantBuilderInterface    $builder,
+        private Context                       $context,
+        private RestaurantRepositoryInterface $restaurantRepository,
+        private TimezoneInterface             $timezone,
+        private RestaurantBuilderInterface    $builder,
+        private CollectionFactory             $collectionFactory
     ) {
-        $this->restaurantRepository = $restaurantRepository;
-        $this->timezone             = $timezone;
-        $this->builder              = $builder;
         parent::__construct($context);
-
     }
 
     /**
@@ -66,5 +60,10 @@ class Data extends AbstractHelper
     function deleteRestaurant(int $id): bool
     {
         return $this->restaurantRepository->deleteById($id);
+    }
+
+    function getRestaurants(): Restaurant\Collection
+    {
+        return $this->collectionFactory->create();
     }
 }

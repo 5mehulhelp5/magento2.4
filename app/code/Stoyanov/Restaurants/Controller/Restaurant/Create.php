@@ -10,16 +10,13 @@ use Stoyanov\Restaurants\Helper\Data;
 
 class Create extends Action
 {
-    private $data;
     public function __construct(
         Context                       $context,
         private PageFactory           $pageFactory,
-        Data                          $data,
+        private Data                  $data,
 
     ) {
-        $this->data = $data;
         parent::__construct($context);
-
     }
 
     public function execute()

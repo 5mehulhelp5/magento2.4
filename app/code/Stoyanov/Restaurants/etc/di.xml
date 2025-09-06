@@ -10,5 +10,5 @@
     <preference for="Stoyanov\Restaurants\Api\Data\RestaurantInterface"
                 type="Stoyanov\Restaurants\Model\Restaurant" />
     <preference for="Stoyanov\Restaurants\Api\Data\RestaurantSearchResultsInterface"
-                type="Stoyanov\Restaurants\Model\Restaurant" />
+                type="Magento\Framework\Api\SearchResults" />
 </config>

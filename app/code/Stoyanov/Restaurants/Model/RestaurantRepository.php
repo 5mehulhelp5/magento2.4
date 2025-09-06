@@ -8,16 +8,17 @@ use Stoyanov\Restaurants\Api\RestaurantRepositoryInterface;
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant as RestaurantResource;
 use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
-use Stoyanov\Restaurants\Model\ResourceModel\Restaurant\CollectionFactory;
 use Stoyanov\Restaurants\Api\Data\RestaurantSearchResultsInterfaceFactory;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
+use Magento\Framework\Api\SearchResults;
 
 class RestaurantRepository implements RestaurantRepositoryInterface
 {
     public function __construct(
         private RestaurantFactory $restaurantFactory,
         private RestaurantResource $restaurantResource,
-        private CollectionFactory $collectionFactory,
-        private RestaurantSearchResultsInterfaceFactory $searchResultsFactory
+        private RestaurantSearchResultsInterfaceFactory $searchResultsFactory,
+        private CollectionProcessor $collectionProcessor
     ) {
     }
 
@@ -60,43 +61,14 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $this->delete($this->getById($id));
     }
 
-
-    public function getList(SearchCriteriaInterface $searchCriteria)
+    public function getSearchResultsList(SearchCriteriaInterface $searchCriteria): SearchResults
     {
-        $collection = $this->collectionFactory->create();
-
-        // Apply filters
-        foreach ($searchCriteria->getFilterGroups() as $group) {
-            $fields = [];
-            $conditions = [];
-            foreach ($group->getFilters() as $filter) {
-                $fields[] = $filter->getField();
-                $conditions[] = [$filter->getConditionType() ?: 'eq' => $filter->getValue()];
-            }
-            if ($fields) {
-                $collection->addFieldToFilter($fields, $conditions);
-            }
-        }
-
-        // Apply sort order
-        foreach ((array)$searchCriteria->getSortOrders() as $sortOrder) {
-            $collection->addOrder(
-                $sortOrder->getField(),
-                ($sortOrder->getDirection() == \Magento\Framework\Api\SortOrder::SORT_ASC) ? 'ASC' : 'DESC'
-            );
-        }
-
-        // Apply pagination
-        $collection->setCurPage($searchCriteria->getCurrentPage());
-        $collection->setPageSize($searchCriteria->getPageSize());
-
-        // Build search results
-        /** @var \Stoyanov\Restaurants\Model\RestaurantSearchResults $searchResults */
+        $collection = $this->restaurantFactory->create()->getCollection();
+        $this->collectionProcessor->process($searchCriteria, $collection);
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($searchCriteria);
-        $searchResults->setItems($collection->getItems());
+        $searchResults->setItems($collection->getData());
         $searchResults->setTotalCount($collection->getSize());
-
         return $searchResults;
     }
 }

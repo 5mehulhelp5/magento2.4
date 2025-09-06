@@ -2,11 +2,10 @@
 
 namespace Stoyanov\Restaurants\Api;
 
-use Stoyanov\Restaurants\Model\ResourceModel\Restaurant as RestaurantResource;
 use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
-
+use Magento\Framework\Api\SearchCriteriaInterface;
 interface RestaurantRepositoryInterface
 {
     /**
@@ -43,8 +42,10 @@ interface RestaurantRepositoryInterface
      */
     public function deleteById(int $id): bool;
 
+
     /**
-     * @return RestaurantResource\Collection
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return RestaurantInterface
      */
-    public function getList(): RestaurantResource\Collection;
+    public function getList(SearchCriteriaInterface $searchCriteria);
 }

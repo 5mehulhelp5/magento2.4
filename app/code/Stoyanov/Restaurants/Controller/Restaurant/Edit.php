@@ -9,12 +9,9 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Edit extends Action
 {
-    protected $resultPageFactory;
-
-    public function __construct(Context $context, PageFactory $resultPageFactory)
+    public function __construct(Context $context, protected PageFactory $resultPageFactory)
     {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
     }
 
     public function execute()

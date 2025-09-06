@@ -8,14 +8,11 @@ use Stoyanov\Restaurants\Helper\Data as RestaurantHelper;
 
 class Edit extends Template
 {
-    private $restaurantHelper;
-
     public function __construct(
         Template\Context $context,
-        RestaurantHelper $restaurantHelper,
+        private RestaurantHelper $restaurantHelper,
         array $data = []
     ) {
-        $this->restaurantHelper = $restaurantHelper;
         parent::__construct($context, $data);
     }
 

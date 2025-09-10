@@ -4,9 +4,7 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurants\Helper;
 
 use Magento\Framework\App\Helper\{Context, AbstractHelper};
-use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
-use Stoyanov\Restaurants\Api\{RestaurantBuilderInterface, RestaurantRepositoryInterface};
-use Stoyanov\Restaurants\Api\Data\RestaurantInterface;
+use Stoyanov\Restaurants\Api\{RestaurantRepositoryInterface, Data\RestaurantInterface};
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant\CollectionFactory;
 use Stoyanov\Restaurants\Model\ResourceModel\Restaurant;
 
@@ -15,23 +13,9 @@ class Data extends AbstractHelper
     public function __construct(
         private Context                       $context,
         private RestaurantRepositoryInterface $restaurantRepository,
-        private TimezoneInterface             $timezone,
-        private RestaurantBuilderInterface    $builder,
         private CollectionFactory             $collectionFactory
     ) {
         parent::__construct($context);
-    }
-
-    /**
-     * @param array $data
-     * @return mixed
-     */
-    function createOrUpdateRestaurant(array $data): mixed
-    {
-        if (!empty($data["id"])) $this->deleteRestaurant((int) $data["id"]);
-        $restaurant = $this->buildRestaurant($data);
-        $response = $this->restaurantRepository->save($restaurant);
-        return $response;
     }
 
     /**
@@ -41,16 +25,6 @@ class Data extends AbstractHelper
     function getRestaurant(int $id): RestaurantInterface
     {
         return $this->restaurantRepository->getById($id);
-    }
-
-    /**
-     * @param array $data
-     * @return RestaurantInterface
-     */
-    private function buildRestaurant(array $data): RestaurantInterface
-    {
-        return $this->builder
-            ->build($data);
     }
 
     /**

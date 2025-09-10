@@ -4,13 +4,13 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurants\Block\Restaurant;
 
 use Magento\Framework\View\Element\Template;
-use Stoyanov\Restaurants\Helper\Data as RestaurantHelper;
+use Stoyanov\Restaurants\Helper\Data as Helper;
 
 class Edit extends Template
 {
     public function __construct(
         Template\Context $context,
-        private RestaurantHelper $restaurantHelper,
+        private Helper $helper,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -25,13 +25,9 @@ class Edit extends Template
 
     public function getRestaurant($id = null)
     {
-        if (!$id) {
-            $id = (int) $this->getRequest()->getParam('id');
-        }
-        $restaurant = $this->restaurantHelper->getRestaurant($id);
-        if ($id) {
-            $restaurant->load($id);
-        }
+        if (!$id) $id = (int) $this->getRequest()->getParam('id');
+        $restaurant = $this->helper->getRestaurant($id);
+        $restaurant->load($id);
         return $restaurant;
     }
 }

@@ -14,8 +14,6 @@ class RestaurantRequest implements RestaurantRequestInterface
         private Data $data,
         private RestaurantBuilderInterface $builder,
         private RestaurantRepositoryInterface $restaurantRepository,
-
-
     ) {}
 
     function createOrUpdateRestaurant(array $data): mixed

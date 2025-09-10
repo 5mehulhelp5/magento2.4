@@ -5,10 +5,10 @@ namespace Stoyanov\Restaurants\Helper;
 
 use Stoyanov\Restaurants\Api\{RestaurantBuilderInterface,
     RestaurantRepositoryInterface,
-    RestaurantRequestInterface,
+    RequestRestaurantInterface,
     Data\RestaurantInterface};
 
-class RestaurantRequest implements RestaurantRequestInterface
+class RequestRestaurant implements RequestRestaurantInterface
 {
     public function __construct(
         private Data $data,
@@ -16,15 +16,15 @@ class RestaurantRequest implements RestaurantRequestInterface
         private RestaurantRepositoryInterface $restaurantRepository,
     ) {}
 
-    function createOrUpdateRestaurant(array $data): mixed
+    function createOrUpdate(array $data): mixed
     {
         if (!empty($data["id"])) $this->data->deleteRestaurant((int) $data["id"]);
-        $restaurant = $this->buildRestaurant($data);
+        $restaurant = $this->build($data);
         $response = $this->restaurantRepository->save($restaurant);
         return $response;
     }
 
-    public function buildRestaurant(array $data): RestaurantInterface
+    public function build(array $data): RestaurantInterface
     {
         return $this->builder
             ->build($data);

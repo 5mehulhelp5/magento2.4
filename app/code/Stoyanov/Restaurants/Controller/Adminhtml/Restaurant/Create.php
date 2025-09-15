@@ -7,9 +7,9 @@ use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 use Stoyanov\Restaurants\Api\RequestRestaurantInterface;
 
-class Update extends Action
+class Create extends Action
 {
-    const ADMIN_RESOURCE = 'Stoyanov_Restaurants::restaurants_edit';
+    const ADMIN_RESOURCE = 'Stoyanov_Restaurants::restaurants_create';
 
     public function __construct(
         Action\Context $context,
@@ -25,7 +25,7 @@ class Update extends Action
             $response = $this->requestRestaurant->createOrUpdate($this->_request->getParams());
             if (!empty($response['entity_id'])) {
                 $this->_redirect('restaurants/restaurant/edit', ['id' => $response['entity_id']]);
-                $this->messageManager->addSuccessMessage(__('Restaurant is updated!'));
+                $this->messageManager->addSuccess(__('Request is updated!'));
             }
         }
         return $this->resultPageFactory->create();

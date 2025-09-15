@@ -23,7 +23,7 @@ class Update extends Action
         if ($this->_request->isPost()) {
             $response = $this->requestRestaurant->createOrUpdate($this->_request->getParams());
             if (!empty($response['entity_id'])) {
-                $this->_redirect('stoyanov/restaurant/edit', ['id' => $response['entity_id']]);
+                $this->_redirect('restaurants/restaurant/edit', ['id' => $response['entity_id']]);
                 $this->messageManager->addSuccess(__('Request is updated!'));
             }
         }

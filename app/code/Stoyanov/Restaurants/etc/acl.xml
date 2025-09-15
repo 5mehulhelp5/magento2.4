@@ -11,6 +11,8 @@
 
                     <!-- Sub-ACL for edit -->
                     <resource id="Stoyanov_Restaurants::restaurants_edit" title="Edit Restaurants" sortOrder="20"/>
+                    <resource id="Stoyanov_Restaurants::restaurants_create" title="Create Restaurant" sortOrder="30"/>
+
                 </resource>
             </resource>
         </resources>

@@ -29,6 +29,18 @@
                 <label>General Settings</label>
 
                 <!-- Add field -->
+                <field id="minimum_size"
+                       translate="label"
+                       type="text"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Minimum collection count</label>
+                    <comment>Set Minimum collection count number</comment>
+                    <validate>validate-digits</validate>
+                </field>
+                <!-- Add field -->
                 <field id="page_size"
                        translate="label"
                        type="text"

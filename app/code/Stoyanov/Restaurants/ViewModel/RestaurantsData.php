@@ -54,4 +54,12 @@ class RestaurantsData implements ArgumentInterface
     {
         return (int) $this->getRestaurants()->getSize();
     }
+
+    public function showPaging(): bool
+    {
+        $minimumSize = (int) $this->data->getConfigValue("minimum_size");
+        if ((int) $this->getRestaurants()->getSize() == 0) return false;
+        if ((int) $this->getRestaurants()->getSize() >= $minimumSize) return true;
+        return false;
+    }
 }

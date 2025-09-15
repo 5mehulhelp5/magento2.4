@@ -28,9 +28,13 @@
     <p>
         <a href="<?= $this->getUrl('restaurants/restaurant/create') ?>"><?= __('Create a new restaurant') ?></a>
     </p>
-<div class="paging">
-    <a href="?p=<?php echo $viewModel->getPrevPage();  ?>"><?= __('Prev page') ?></a>
-    <a href="?p=<?php echo $viewModel->getNextPage(); ?>"><?= __('Next page') ?></a>
-</div>
+
+    <?php if($viewModel->showPaging()) : ?>
+        <div class="paging">
+            <a href="?p=<?php echo $viewModel->getPrevPage();  ?>"><?= __('Prev page') ?></a>
+            <a href="?p=<?php echo $viewModel->getNextPage(); ?>"><?= __('Next page') ?></a>
+        </div>
+    <?php endif; ?>
+
 
 <?php endif;?>

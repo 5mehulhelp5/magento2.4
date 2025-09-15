@@ -5,7 +5,7 @@
         <referenceContainer name="content">
             <block class="Stoyanov\Restaurants\Block\Restaurant\Edit"
                    name="restaurant_edit"
-                   template="Stoyanov_Restaurants::restaurants/edit.phtml"/>
+                   template="Stoyanov_Restaurants::restaurant/edit.phtml"/>
         </referenceContainer>
     </body>
 </page>

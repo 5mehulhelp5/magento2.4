@@ -19,14 +19,14 @@
             <p><b><?= $restaurant->getCreatedAt() ?></b></p>
         <?php endif; ?>
         <p>
-            <a href="<?= $this->getUrl('stoyanov/restaurant/edit', ['id' => $restaurant->getId()]) ?>">
+            <a href="<?= $this->getUrl('restaurants/restaurant/edit', ['id' => $restaurant->getId()]) ?>">
             <?= __('Edit') ?>
             </a>
         </p>
     -------------------------------------------------------
     <?php endforeach; ?>
     <p>
-        <a href="<?= $this->getUrl('stoyanov/restaurant/create') ?>"><?= __('Create a new restaurant') ?></a>
+        <a href="<?= $this->getUrl('restaurants/restaurant/create') ?>"><?= __('Create a new restaurant') ?></a>
     </p>
 <div class="paging">
     <a href="?p=<?php echo $viewModel->getPrevPage();  ?>"><?= __('Prev page') ?></a>

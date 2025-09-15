@@ -1,9 +1,9 @@
 <p>
-    <a href="<?= $this->getUrl('stoyanov/restaurant/index') ?>"><?= __('Our Restaurants') ?></a>
+    <a href="<?= $this->getUrl('restaurants/restaurant/index') ?>"><?= __('Our Restaurants') ?></a>
 </p>
 <h1><?= __('Create a new restaurant') ?></h1>
 
-<form action="<?= $this->getUrl('stoyanov/restaurant/create') ?>" method="post" data-mage-init='{"validation":{}}' enctype="multipart/form-data">
+<form action="<?= $this->getUrl('restaurants/restaurant/create') ?>" method="post" data-mage-init='{"validation":{}}' enctype="multipart/form-data">
     <input type="hidden" name="form_key" value="<?= $this->getFormKey(); ?>" />
     <p>
         <label><?= __('Name') ?></label>

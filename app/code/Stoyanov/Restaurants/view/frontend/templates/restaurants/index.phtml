@@ -1,8 +1,5 @@
 <h1><?= __('Our Restaurants') ?></h1>
 <?php $viewModel = $this->getViewModelRestaurantsdata(); ?>
-<?php $currentPage = $viewModel->getCurrentPage(); ?>
-<?php $nextPage = $currentPage + 1; ?>
-<?php $prevPage = $currentPage - 1; ?>
 <?php if (is_object($viewModel)): ?>
     <?php foreach ($viewModel->getRestaurants() as $restaurant) : ?>
         <?php if ($restaurant->getName()): ?>
@@ -32,8 +29,8 @@
         <a href="<?= $this->getUrl('stoyanov/restaurant/create') ?>"><?= __('Create a new restaurant') ?></a>
     </p>
 <div class="paging">
-    <a href="?p=<?php echo $prevPage?>"><?= __('Prev page') ?></a>
-    <a href="?p=<?php echo $nextPage?>"><?= __('Next page') ?></a>
+    <a href="?p=<?php echo $viewModel->getPrevPage();  ?>"><?= __('Prev page') ?></a>
+    <a href="?p=<?php echo $viewModel->getNextPage(); ?>"><?= __('Next page') ?></a>
 </div>
 
 <?php endif;?>

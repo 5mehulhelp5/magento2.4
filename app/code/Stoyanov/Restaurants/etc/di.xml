@@ -13,4 +13,6 @@
                 type="Magento\Framework\Api\SearchResults" />
     <preference for="Stoyanov\Restaurants\Api\RequestRestaurantInterface"
                 type="Stoyanov\Restaurants\Helper\RequestRestaurant"/>
+    <preference for="Stoyanov\Restaurants\Api\RestaurantManagerInterface"
+                type="Stoyanov\Restaurants\Helper\RestaurantManager"/>
 </config>

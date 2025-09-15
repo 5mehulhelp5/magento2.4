@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Stoyanov\Restaurants\Controller\Adminhtml\Restaurant;
 
 use Magento\Backend\App\Action;
@@ -8,12 +10,9 @@ class Index extends Action
 {
     const ADMIN_RESOURCE = 'Stoyanov_Restaurants::restaurants_view';
 
-    protected $resultPageFactory;
-
-    public function __construct(Action\Context $context, PageFactory $resultPageFactory)
+    public function __construct(Action\Context $context, protected PageFactory $resultPageFactory)
     {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
     }
 
     public function execute()

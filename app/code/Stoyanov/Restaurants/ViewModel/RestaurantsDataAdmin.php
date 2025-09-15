@@ -9,7 +9,7 @@ use Stoyanov\Restaurants\Model\ResourceModel\Restaurant;
 use Magento\Framework\App\RequestInterface;
 use Stoyanov\Restaurants\Api\RestaurantManagerInterface;
 
-class RestaurantsData implements ArgumentInterface
+class RestaurantsDataAdmin implements ArgumentInterface
 {
     public function __construct(
         private RestaurantManagerInterface $manager,
@@ -22,7 +22,7 @@ class RestaurantsData implements ArgumentInterface
      */
     public function getRestaurants(): Restaurant\Collection
     {
-        return $this->manager->getRestaurants($this->getCurrentPage(), true);
+        return $this->manager->getRestaurants($this->getCurrentPage());
     }
 
     public function getCurrentPage()

@@ -20,7 +20,7 @@ class Edit extends Template
     {
         // URL for form submission (Save controller)
         $id = $this->getRequest()->getParam('id');
-        return $this->getUrl('stoyanov/restaurant/update', ['id' => $id]);
+        return $this->getUrl('restaurants/restaurant/update', ['id' => $id]);
     }
 
     public function getRestaurant($id = null)

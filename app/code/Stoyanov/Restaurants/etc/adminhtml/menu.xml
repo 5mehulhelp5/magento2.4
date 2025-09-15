@@ -14,13 +14,5 @@
              parent="Stoyanov_Restaurants::restaurants"
              action="restaurants/restaurant/index"
              resource="Stoyanov_Restaurants::restaurants_view"/>
-
-        <add id="Stoyanov_Restaurants::restaurants_edit"
-             title="Manage Restaurants"
-             module="Stoyanov_Restaurants"
-             sortOrder="20"
-             parent="Stoyanov_Restaurants::restaurants"
-             action="restaurants/restaurant/edit"
-             resource="Stoyanov_Restaurants::restaurants_edit"/>
     </menu>
 </config>

@@ -19,7 +19,7 @@
             <p><b><?= $restaurant->getCreatedAt() ?></b></p>
         <?php endif; ?>
         <p>
-            <a href="<?= $this->getUrl('stoyanov/restaurant/edit', ['id' => $restaurant->getId()]) ?>">
+            <a href="<?= $this->getUrl('restaurants/restaurant/edit', ['id' => $restaurant->getId()]) ?>">
             <?= __('Edit') ?>
             </a>
         </p>

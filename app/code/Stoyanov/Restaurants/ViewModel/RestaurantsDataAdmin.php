@@ -25,7 +25,7 @@ class RestaurantsDataAdmin implements ArgumentInterface
         return $this->manager->getRestaurants($this->getCurrentPage());
     }
 
-    public function getCurrentPage()
+    public function getCurrentPage(): int
     {
         return (int) $this->request->getParam('p', 1);
     }

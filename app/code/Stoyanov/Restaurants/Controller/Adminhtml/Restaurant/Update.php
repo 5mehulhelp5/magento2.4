@@ -25,7 +25,7 @@ class Update extends Action
             $response = $this->requestRestaurant->createOrUpdate($this->_request->getParams());
             if (!empty($response['entity_id'])) {
                 $this->_redirect('restaurants/restaurant/edit', ['id' => $response['entity_id']]);
-                $this->messageManager->addSuccessMessage(__('Restaurant is updated!'));
+                $this->messageManager->addSuccessMessage(__('The restaurant is updated!'));
             }
         }
         return $this->resultPageFactory->create();

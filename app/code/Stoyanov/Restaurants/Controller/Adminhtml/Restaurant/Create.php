@@ -25,7 +25,7 @@ class Create extends Action
             $response = $this->requestRestaurant->createOrUpdate($this->_request->getParams());
             if (!empty($response['entity_id'])) {
                 $this->_redirect('restaurants/restaurant/edit', ['id' => $response['entity_id']]);
-                $this->messageManager->addSuccess(__('Request is updated!'));
+                $this->messageManager->addSuccess(__('New restaurant is created!'));
             }
         }
         return $this->resultPageFactory->create();

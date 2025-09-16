@@ -23,6 +23,11 @@
             <?= __('Edit') ?>
             </a>
         </p>
+        <p>
+            <a href="<?= $this->getUrl('restaurants/restaurant/delete', ['id' => $restaurant->getId()]) ?>">
+                <?= __('Delete') ?>
+            </a>
+        </p>
     -------------------------------------------------------
     <?php endforeach; ?>
     <p>

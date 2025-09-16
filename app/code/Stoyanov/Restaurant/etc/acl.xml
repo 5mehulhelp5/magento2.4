@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <!-- Root ACL for Magento admin -->
+            <resource id="Magento_Backend::admin">
+                <!-- Our module's root ACL -->
+                <resource id="Stoyanov_Restaurant::restaurant" title="Restaurants" sortOrder="10">
+                    <!-- Sub-ACL for view -->
+                    <resource id="Stoyanov_Restaurant::restaurant_view" title="View Restaurants" sortOrder="10"/>
+
+                    <!-- Sub-ACL for edit -->
+                    <resource id="Stoyanov_Restaurant::restaurant_edit" title="Edit Restaurants" sortOrder="20"/>
+                    <resource id="Stoyanov_Restaurant::restaurant_create" title="Create Restaurant" sortOrder="30"/>
+
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

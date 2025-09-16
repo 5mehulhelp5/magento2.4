@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface"
+            type="Stoyanov\Restaurant\Model\RestaurantRepository"/>
+    <preference for="Stoyanov\Restaurant\Api\RestaurantBuilderInterface"
+                type="Stoyanov\Restaurant\Model\RestaurantBuilder"/>
+    <preference for="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface"
+      type="Stoyanov\Restaurant\Model\RestaurantRepository"/>
+    <preference for="Stoyanov\Restaurant\Api\Data\RestaurantInterface"
+                type="Stoyanov\Restaurant\Model\Restaurant" />
+    <preference for="Stoyanov\Restaurant\Api\Data\RestaurantSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Stoyanov\Restaurant\Api\RequestRestaurantInterface"
+                type="Stoyanov\Restaurant\Helper\RequestRestaurant"/>
+    <preference for="Stoyanov\Restaurant\Api\RestaurantManagerInterface"
+                type="Stoyanov\Restaurant\Helper\RestaurantManager"/>
+</config>

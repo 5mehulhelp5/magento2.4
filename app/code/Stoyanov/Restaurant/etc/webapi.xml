@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- GET Restaurant by ID -->
+    <route url="/V1/restaurants/:id" method="GET">
+        <service class="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/> <!-- or Magento_Catalog::products if you want auth -->
+        </resources>
+    </route>
+    <!-- SAVE Restaurant -->
+    <route url="/V1/restaurants" method="POST">
+        <service class="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Magento_Backend::admin"/>
+        </resources>
+    </route>
+
+    <!-- DELETE Restaurant -->
+    <route url="/V1/restaurants/:id" method="DELETE">
+        <service class="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface" method="delete"/>
+        <resources>
+            <resource ref="Magento_Backend::admin"/>
+        </resources>
+    </route>
+    <route url="/V1/restaurants/search" method="GET">
+        <service class="Stoyanov\Restaurant\Api\RestaurantRepositoryInterface" method="getSearchResultsList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

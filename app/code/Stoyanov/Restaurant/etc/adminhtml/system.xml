@@ -16,8 +16,8 @@
                  showInWebsite="1"
                  showInStore="1">
             <label>Restaurants Settings</label>
-            <tab>stoyanov_restaurants</tab>
-            <resource>Stoyanov_Restaurants::config</resource>
+            <tab>stoyanov_restaurant</tab>
+            <resource>Stoyanov_Restaurant::config</resource>
 
             <!-- Add group -->
             <group id="general"

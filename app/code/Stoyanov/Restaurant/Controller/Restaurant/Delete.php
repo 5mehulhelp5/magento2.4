@@ -8,6 +8,7 @@ use Magento\Framework\App\Action\{Action, Context};
 use Magento\Framework\View\Result\PageFactory;
 use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
 use Stoyanov\Restaurant\Model\RestaurantFactory;
+use Magento\Framework\Controller\Result\ForwardFactory;
 
 
 class Delete extends Action
@@ -16,7 +17,8 @@ class Delete extends Action
         Context $context,
         private PageFactory $pageFactory,
         private RestaurantRepositoryInterface $repository,
-        private RestaurantFactory $factory
+        private RestaurantFactory $factory,
+        private ForwardFactory $forward
     ) {
         parent::__construct($context);
     }
@@ -26,7 +28,8 @@ class Delete extends Action
         if ($this->_request->isPost()) {
             $model = $this->factory->create();
             $restaurant = $model->load($this->_request->getParams()["id"]);
-            if ($this->repository->delete($restaurant)) $this->_redirect('restaurants/restaurant/index');
+            $forwardResult = $this->forward->create();
+            if ($this->repository->delete($restaurant)) $forwardResult->forward('index');
             $this->messageManager->addSuccess(__('The restaurant is deleted!'));
         }
         return $this->pageFactory->create();

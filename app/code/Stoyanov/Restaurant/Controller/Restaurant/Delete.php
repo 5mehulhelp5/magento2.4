@@ -10,7 +10,6 @@ use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
 use Stoyanov\Restaurant\Model\RestaurantFactory;
 use Magento\Framework\Controller\Result\ForwardFactory;
 
-
 class Delete extends Action
 {
     public function __construct(

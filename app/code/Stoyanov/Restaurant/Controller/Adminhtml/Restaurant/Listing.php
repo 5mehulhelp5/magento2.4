@@ -6,7 +6,7 @@ namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class Listing extends Action
 {
     const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_view';
 

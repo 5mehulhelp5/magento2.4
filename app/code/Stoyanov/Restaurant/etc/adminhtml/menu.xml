@@ -12,7 +12,7 @@
              module="Stoyanov_Restaurant"
              sortOrder="10"
              parent="Stoyanov_Restaurant::restaurant"
-             action="restaurants/restaurant/index"
+             action="restaurants/restaurant/listing"
              resource="Stoyanov_Restaurant::restaurant_view"/>
 
         <add id="Stoyanov_Restaurant::restaurant_create"

@@ -8,7 +8,7 @@ use Magento\Framework\App\Action\{Action, Context};
 use Magento\Framework\View\Result\PageFactory;
 use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
 use Stoyanov\Restaurant\Model\RestaurantFactory;
-use Magento\Framework\Controller\Result\ForwardFactory;
+use Magento\Backend\Model\View\Result\ForwardFactory;
 
 class Delete extends Action
 {

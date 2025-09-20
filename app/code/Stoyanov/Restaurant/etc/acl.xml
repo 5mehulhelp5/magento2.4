@@ -7,12 +7,12 @@
                 <!-- Our module's root ACL -->
                 <resource id="Stoyanov_Restaurant::restaurant" title="Restaurants" sortOrder="10">
                     <!-- Sub-ACL for view -->
-                    <resource id="Stoyanov_Restaurant::restaurant_view" title="View Restaurants" sortOrder="10"/>
+                    <resource id="Stoyanov_Restaurant::restaurant_view" title="View Restaurants" sortOrder="15"/>
 
                     <!-- Sub-ACL for edit -->
                     <resource id="Stoyanov_Restaurant::restaurant_edit" title="Edit Restaurants" sortOrder="20"/>
-                    <resource id="Stoyanov_Restaurant::restaurant_create" title="Create Restaurant" sortOrder="30"/>
-
+                    <resource id="Stoyanov_Restaurant::restaurant_save" title="Save Restaurant" sortOrder="30"/>
+                    <resource id="Stoyanov_Restaurant::restaurant_delete" title="Delete Restaurant" sortOrder="40"/>
                 </resource>
             </resource>
         </resources>

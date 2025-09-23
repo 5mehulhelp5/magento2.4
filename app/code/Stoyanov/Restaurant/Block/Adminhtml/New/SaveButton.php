@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Block\Adminhtml\New;
 
-use Magento\Cms\Block\Adminhtml\Page\Edit\GenericButton;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 use Magento\Ui\Component\Control\Container;
 

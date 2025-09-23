@@ -4,7 +4,7 @@
 
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">restaurants_restaurant_formnew_data_source</item>
+            <item name="provider" xsi:type="string">restaurants_restaurant_formnew.restaurants_restaurant_formnew_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Restaurant</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
@@ -16,7 +16,7 @@
         <namespace>restaurants_restaurant_formnew</namespace>
         <dataScope>data</dataScope>
         <deps>
-            <dep>restaurants_restaurant_formnew_data_source</dep>
+            <dep>restaurants_restaurant_formnew.restaurants_restaurant_formnew_data_source</dep>
         </deps>
     </settings>
     <dataSource name="restaurant_formnew_data_source">

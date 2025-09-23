@@ -21,9 +21,7 @@ class MassDelete extends  Action implements HttpPostActionInterface
      * @see _isAllowed()
      */
     const ADMIN_RESOURCE = 'Magento_Cms::page_delete';
-
-
-
+    
     /**
      * @param Context $context
      * @param Filter $filter

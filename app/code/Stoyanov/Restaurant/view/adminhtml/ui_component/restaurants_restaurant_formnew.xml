@@ -4,24 +4,22 @@
 
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">restaurants_restaurant_form_data_source</item>
+            <item name="provider" xsi:type="string">restaurants_restaurant_formnew_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Restaurant</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
     <settings>
         <buttons>
-            <button name="save" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\SaveButton"/>
-            <button name="delete" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\DeleteButton"/>
-            <button name="back" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\BackButton"/>
+            <button name="save" class="Stoyanov\Restaurant\Block\Adminhtml\New\SaveButton"/>
         </buttons>
-        <namespace>restaurants_restaurant_form</namespace>
+        <namespace>restaurants_restaurant_formnew</namespace>
         <dataScope>data</dataScope>
         <deps>
-            <dep>restaurants_restaurant_form_data_source</dep>
+            <dep>restaurants_restaurant_formnew_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="restaurant_form_data_source">
+    <dataSource name="restaurant_formnew_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
@@ -30,7 +28,7 @@
         <settings>
             <submitUrl path="restaurants/restaurant/save"/>
         </settings>
-        <dataProvider class="Stoyanov\Restaurant\Model\Restaurant\DataProvider" name="restaurant_form_data_source">
+        <dataProvider class="Stoyanov\Restaurant\Model\Restaurant\New\DataProvider" name="restaurant_formnew_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>
@@ -39,18 +37,6 @@
     </dataSource>
 
     <fieldset name="general">
-        <field name="id" formElement="input">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">restaurant</item>
-                </item>
-            </argument>
-            <settings>
-                <dataType>text</dataType>
-                <visible>false</visible>
-                <dataScope>id</dataScope>
-            </settings>
-        </field>
         <field name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

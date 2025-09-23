@@ -35,6 +35,7 @@ class RestaurantsData implements ArgumentInterface
     {
         $nextPage = $this->getCurrentPage() + 1;
         if ($nextPage >  $this->getCollectionCount() / $this->getPageSize()) $nextPage = $this->getCurrentPage();
+
         return $nextPage;
     }
 

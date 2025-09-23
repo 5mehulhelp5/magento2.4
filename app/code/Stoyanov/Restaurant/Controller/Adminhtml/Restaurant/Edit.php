@@ -30,7 +30,7 @@ class Edit extends Action implements HttpGetActionInterface
             if (!$model->getId()) {
                 $this->messageManager->addErrorMessage(__('This restaurant no longer exists.'));
                 $resultRedirect = $this->resultRedirectFactory->create();
-                return $resultRedirect->seteeeePath('*/*/');
+                return $resultRedirect->setPath('*/*/');
             }
         }
 
@@ -38,12 +38,12 @@ class Edit extends Action implements HttpGetActionInterface
 
         $resultPage = $this->_initAction();
         $resultPage->addBreadcrumb(
-            $id ? __('Edit Restaurant') : __('New Restaurant'),
-            $id ? __('Edit Restaurant') : __('New Restaurant')
+             __('Edit Restaurant'),
+            __('Edit Restaurant')
         );
         $resultPage->getConfig()->getTitle()->prepend(__('Restaurants'));
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getTitle() : __('New Restaurant'));
+            ->prepend($model->getName());
 
         return $resultPage;
     }

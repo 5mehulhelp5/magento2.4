@@ -33,7 +33,7 @@
         <dataProvider class="Stoyanov\Restaurant\Ui\Component\Edit\DataProvider" name="restaurant_form_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
-                <primaryFieldName>id</primaryFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
             </settings>
         </dataProvider>
     </dataSource>

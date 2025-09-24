@@ -12,7 +12,7 @@ class Delete extends Action implements HttpPostActionInterface
 
     public function execute()
     {
-        $id = $this->getRequest()->getParam('page_id');
+        $id = $this->getRequest()->getParam('id');
 
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {

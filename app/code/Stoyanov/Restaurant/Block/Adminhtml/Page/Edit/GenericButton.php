@@ -24,7 +24,7 @@ class GenericButton
     {
         try {
             return $this->restaurantRepository->getById(
-                $this->context->getRequest()->getParam('block_id')
+                (int) $this->context->getRequest()->getParam('id')
             )->getId();
         } catch (NoSuchEntityException $e) {
         }

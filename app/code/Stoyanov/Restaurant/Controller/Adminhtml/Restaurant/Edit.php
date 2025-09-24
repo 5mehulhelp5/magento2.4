@@ -53,9 +53,8 @@ class Edit extends Action implements HttpGetActionInterface
         // load layout, set active menu and breadcrumbs
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-//        $resultPage->setActiveMenu('Magento_Cms::cms_page')
-//            ->addBreadcrumb(__('Restaurant'), __('Restaurant'))
-//            ->addBreadcrumb(__('Manage Restaurant'), __('Manage Restaurant'));
+        $resultPage->setActiveMenu('Stoyanov_Restaurant::restaurant_view')
+            ->addBreadcrumb(__('Restaurant'), __('Restaurant'));
         return $resultPage;
     }
 }

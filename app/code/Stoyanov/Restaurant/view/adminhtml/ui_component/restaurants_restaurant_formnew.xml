@@ -28,7 +28,7 @@
         <settings>
             <submitUrl path="restaurants/restaurant/save"/>
         </settings>
-        <dataProvider class="Stoyanov\Restaurant\Model\Restaurant\New\DataProvider" name="restaurant_formnew_data_source">
+        <dataProvider class="Stoyanov\Restaurant\Ui\Component\New\DataProvider" name="restaurant_formnew_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>

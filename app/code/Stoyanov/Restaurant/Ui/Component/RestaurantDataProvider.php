@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Stoyanov\Restaurant\Model\Restaurant\New;
+namespace Stoyanov\Restaurant\Ui\Component;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
 use Stoyanov\Restaurant\Model\ResourceModel\Restaurant\CollectionFactory;
 
-class DataProvider extends AbstractDataProvider
+class RestaurantDataProvider extends AbstractDataProvider
 {
     public function __construct(
         $name,
@@ -14,8 +14,7 @@ class DataProvider extends AbstractDataProvider
         $requestFieldName,
         CollectionFactory $collectionFactory,
         array $meta = [],
-        array $data = [],
-
+        array $data = []
     ) {
         $this->collection = $collectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
@@ -23,6 +22,6 @@ class DataProvider extends AbstractDataProvider
 
     public function getData()
     {
-        return [];
+        return $this->collection;
     }
 }

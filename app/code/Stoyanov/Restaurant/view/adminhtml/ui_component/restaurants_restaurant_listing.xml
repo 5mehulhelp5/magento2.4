@@ -20,10 +20,13 @@
     </settings>
     <dataSource name="restaurants_restaurant_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>Stoyanov_Restaurant::restaurant_view</aclResource>
-        <dataProvider class="Stoyanov\Restaurant\Model\Restaurant\DataProvider" name="restaurants_restaurant_listing_data_source">
+        <dataProvider class="Stoyanov\Restaurant\Ui\Component\RestaurantDataProvider" name="restaurants_restaurant_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>entity_id</primaryFieldName>

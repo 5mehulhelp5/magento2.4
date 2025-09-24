@@ -17,7 +17,7 @@ class Edit extends Action implements HttpGetActionInterface
         protected PageFactory $resultPageFactory,
         protected Registry $_coreRegistry
     ) {
-        parent::__construct($context);
+        parent::__construct($context, $_coreRegistry);
     }
 
     public function execute()
@@ -44,7 +44,6 @@ class Edit extends Action implements HttpGetActionInterface
         $resultPage->getConfig()->getTitle()->prepend(__('Restaurants'));
         $resultPage->getConfig()->getTitle()
             ->prepend($model->getName());
-
         return $resultPage;
     }
 

@@ -17,12 +17,15 @@ class NewAction extends Action implements HttpGetActionInterface
         protected PageFactory $resultPageFactory,
         protected Registry $coreRegistry,
     ) {
-        parent::__construct($context, $coreRegistry);
+        parent::__construct($context);
     }
 
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
+        $resultPage->setActiveMenu('Stoyanov_Restaurant::restaurant');
+        $resultPage->getConfig()->getTitle()->prepend(__('New Restaurant'));
+
         return $resultPage;
     }
 }

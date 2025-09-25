@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
-
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">restaurants_restaurant_formnew.restaurants_restaurant_formnew_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Restaurant</item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
     <settings>
@@ -35,8 +33,10 @@
             </settings>
         </dataProvider>
     </dataSource>
-
     <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
         <field name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

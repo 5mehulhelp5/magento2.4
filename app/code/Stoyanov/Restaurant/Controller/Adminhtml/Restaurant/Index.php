@@ -7,8 +7,9 @@ use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Registry;
+use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-class Index extends Action implements HttpGetActionInterface
+class Index extends Restaurant implements HttpGetActionInterface
 {
     const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_view';
 
@@ -23,7 +24,11 @@ class Index extends Action implements HttpGetActionInterface
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('Restaurants'));
+        $this->initPage($resultPage)->getConfig()->getTitle()->prepend(__('Restaurants'));
+
+        $dataPersistor = $this->_objectManager->get(\Magento\Framework\App\Request\DataPersistorInterface::class);
+        $dataPersistor->clear('stoyanov_restaurant');
+
         return $resultPage;
     }
 }

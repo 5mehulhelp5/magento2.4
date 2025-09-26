@@ -15,7 +15,7 @@ class DeleteButton  extends GenericButton implements ButtonProviderInterface
         $data = [];
         if ($this->getPageId()) {
             $data = [
-                'label' => __('Delete Page'),
+                'label' => __('Delete Restaurant'),
                 'class' => 'delete',
                 'on_click' => 'deleteConfirm(\'' . __(
                         'Are you sure you want to do this?'

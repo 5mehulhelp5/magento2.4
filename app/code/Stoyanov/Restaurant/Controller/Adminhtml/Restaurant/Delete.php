@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-class Delete extends Action implements HttpPostActionInterface
+class Delete extends Restaurant implements HttpPostActionInterface
 {
     const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_delete';
 

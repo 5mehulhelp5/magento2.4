@@ -79,7 +79,7 @@ class Save extends Restaurant implements HttpGetActionInterface
             $this->restaurantRepository->save($duplicateModel);
             $id = $duplicateModel->getId();
             $this->messageManager->addSuccessMessage(__('You duplicated the Restaurant.'));
-            $this->dataPersistor->set('cms_block', $data);
+            $this->dataPersistor->set('stoyanov_restaurant', $data);
             $resultRedirect->setPath('*/*/edit', ['id' => $id]);
         }
         return $resultRedirect;

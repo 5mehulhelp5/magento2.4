@@ -13,7 +13,7 @@
             <button name="delete" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\DeleteButton"/>
             <button name="back" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\BackButton"/>
         </buttons>
-        <namespace>restaurants_restaurant_formnew</namespace>
+        <namespace>restaurants_restaurant_form</namespace>
         <dataScope>data</dataScope>
         <deps>
             <dep>restaurants_restaurant_form.restaurants_restaurant_form_data_source</dep>

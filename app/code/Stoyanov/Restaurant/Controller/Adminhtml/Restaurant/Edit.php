@@ -7,11 +7,10 @@ use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Registry;
+use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-class Edit extends Action implements HttpGetActionInterface
+class Edit extends Restaurant implements HttpGetActionInterface
 {
-    const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_save';
-
     public function __construct(
         protected Action\Context $context,
         protected PageFactory $resultPageFactory,
@@ -33,27 +32,18 @@ class Edit extends Action implements HttpGetActionInterface
                 return $resultRedirect->setPath('*/*/');
             }
         }
-
         $this->_coreRegistry->register('stoyanov_restaurant', $model);
 
-        $resultPage = $this->_initAction();
-        $resultPage->addBreadcrumb(
-             __('Edit Restaurant'),
-            __('Edit Restaurant')
-        );
-        $resultPage->getConfig()->getTitle()->prepend(__('Restaurants'));
-        $resultPage->getConfig()->getTitle()
-            ->prepend($model->getName());
-        return $resultPage;
-    }
-
-    protected function _initAction()
-    {
-        // load layout, set active menu and breadcrumbs
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        // 5. Build edit form
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Stoyanov_Restaurant::restaurant_view')
-            ->addBreadcrumb(__('Restaurant'), __('Restaurant'));
+        $this->initPage($resultPage)->addBreadcrumb(
+            $id ? __('Edit Restaurant') : __('New Restaurant'),
+            $id ? __('Edit Restaurant') : __('New Restaurant')
+        );
+
+        $resultPage->getConfig()->getTitle()->prepend(__('Restaurants'));
+        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getName() : __('New Restaurant'));
+
         return $resultPage;
     }
 }

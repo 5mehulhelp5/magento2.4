@@ -23,9 +23,12 @@ class GenericButton
     public function getPageId()
     {
         try {
-            return $this->restaurantRepository->getById(
-                (int) $this->context->getRequest()->getParam('id')
-            )->getId();
+            $id = (int) $this->context->getRequest()->getParam('id');
+            if ($id) {
+                return $this->restaurantRepository->getById(
+                    $id
+                )->getId();
+            }
         } catch (NoSuchEntityException $e) {
         }
         return null;

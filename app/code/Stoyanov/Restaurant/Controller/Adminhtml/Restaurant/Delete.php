@@ -31,7 +31,7 @@ class Delete extends Restaurant implements HttpPostActionInterface
                 // display error message
                 $this->messageManager->addErrorMessage($e->getMessage());
                 // go back to edit form
-                return $resultRedirect->setPath('*/*/edit', ['page_id' => $id]);
+                return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
             }
         }
 

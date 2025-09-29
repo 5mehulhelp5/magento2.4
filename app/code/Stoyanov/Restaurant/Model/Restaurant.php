@@ -13,42 +13,43 @@ class Restaurant extends AbstractModel implements RestaurantInterface
         $this->_init(ResourceModel\Restaurant::class);
     }
 
-    public function getId()
+    public function getId(): mixed
     {
         return $this->getData(self::ENTITY_ID);
     }
 
-    public function setId($id)
+
+    public function setId(mixed $id): Restaurant
     {
         return $this->setData(self::ENTITY_ID, $id);
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->getData(self::NAME);
     }
 
-    public function setName($name)
+    public function setName(string $name): Restaurant
     {
         return $this->setData(self::NAME, $name);
     }
 
-    public function getCapacity()
+    public function getCapacity(): mixed
     {
         return $this->getData(self::CAPACITY);
     }
 
-    public function setCapacity($capacity)
+    public function setCapacity(mixed $capacity): Restaurant
     {
         return $this->setData(self::CAPACITY, $capacity);
     }
 
-    public function getLocation()
+    public function getLocation(): string
     {
         return $this->getData(self::LOCATION);
     }
 
-    public function setLocation($location)
+    public function setLocation(string $location): Restaurant
     {
         return $this->setData(self::LOCATION, $location);
     }

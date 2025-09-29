@@ -12,7 +12,7 @@ class RestaurantCreatedObserver implements ObserverInterface
     public function __construct(private LoggerInterface $logger)
     {}
 
-    public function execute(Observer $observer)
+    public function execute(Observer $observer): void
     {
         // Get data from event
         $restaurant = $observer->getData('restaurant');

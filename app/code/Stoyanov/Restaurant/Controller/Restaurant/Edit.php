@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurant\Controller\Restaurant;
 
 use Magento\Framework\App\Action\{Action, Context};
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\{PageFactory, Page};
 
 class Edit extends Action
 {
@@ -14,7 +14,7 @@ class Edit extends Action
         parent::__construct($context);
     }
 
-    public function execute()
+    public function execute(): Page
     {
         return $this->resultPageFactory->create();
     }

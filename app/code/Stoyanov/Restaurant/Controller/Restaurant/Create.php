@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurant\Controller\Restaurant;
 
 use Magento\Framework\App\Action\{Action, Context};
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\{PageFactory, Page};
 use \Stoyanov\Restaurant\Api\RequestRestaurantInterface;
 use Magento\Framework\Event\ManagerInterface;
 
@@ -20,7 +20,7 @@ class Create extends Action
         parent::__construct($context);
     }
 
-    public function execute()
+    public function execute(): Page
     {
         if ($this->_request->isPost()) {
             $response = $this->requestRestaurant->createOrUpdate($this->_request->getParams());

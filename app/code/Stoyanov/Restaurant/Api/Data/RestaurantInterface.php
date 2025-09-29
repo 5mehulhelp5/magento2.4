@@ -2,6 +2,8 @@
 
 namespace Stoyanov\Restaurant\Api\Data;
 
+use Stoyanov\Restaurant\Model\Restaurant;
+
 interface RestaurantInterface
 {
     const ENTITY_ID = 'entity_id';
@@ -13,44 +15,44 @@ interface RestaurantInterface
     /**
      * @return mixed
      */
-    public function getId();
+    public function getId(): mixed;
 
     /**
-     * @param $id
+     * @param int $id
      * @return mixed
      */
-    public function setId($id);
+    public function setId(mixed $id): Restaurant;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getName();
+    public function getName(): string;
 
     /**
-     * @param $name
+     * @param string $name
      * @return mixed
      */
-    public function setName($name);
+    public function setName(string $name): Restaurant;
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getCapacity();
+    public function getCapacity(): mixed;
 
     /**
-     * @param $capacity
-     * @return mixed
+     * @param int $capacity
+     * @return Restaurant
      */
-    public function setCapacity($capacity);
+    public function setCapacity(mixed $capacity): Restaurant;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getLocation();
+    public function getLocation(): string;
 
     /**
-     * @param $location
-     * @return mixed
+     * @param string $location
+     * @return Restaurant
      */
-    public function setLocation($location);
+    public function setLocation(string $location): Restaurant;
 }

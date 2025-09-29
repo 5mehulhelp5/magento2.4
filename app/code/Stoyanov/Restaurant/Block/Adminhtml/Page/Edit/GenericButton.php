@@ -20,15 +20,15 @@ class GenericButton
     ) {
     }
 
+    /**
+     * @return mixed|null
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function getPageId()
     {
         try {
             $id = (int) $this->context->getRequest()->getParam('id');
-            if ($id) {
-                return $this->restaurantRepository->getById(
-                    $id
-                )->getId();
-            }
+            if ($id) return $this->restaurantRepository->getById($id)->getId();
         } catch (NoSuchEntityException $e) {
         }
         return null;
@@ -42,7 +42,7 @@ class GenericButton
      * @param   array $params
      * @return  string
      */
-    public function getUrl($route = '', $params = [])
+    public function getUrl(string $route = '', array $params = []): string
     {
         return $this->context->getUrlBuilder()->getUrl($route, $params);
     }

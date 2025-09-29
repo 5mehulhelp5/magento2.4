@@ -17,7 +17,7 @@ class Data extends AbstractHelper
         parent::__construct($context);
     }
 
-    public function getConfigValue($field, $storeId = null)
+    public function getConfigValue(string $field, $storeId = null): mixed
     {
         return $this->scopeConfig->getValue(
             self::XML_PATH_RESTAURANTS . $field,

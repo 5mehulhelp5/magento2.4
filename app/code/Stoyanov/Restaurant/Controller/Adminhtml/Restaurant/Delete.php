@@ -3,14 +3,14 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\{App\Action\HttpPostActionInterface, Controller\Result\Redirect};
 use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 class Delete extends Restaurant implements HttpPostActionInterface
 {
     const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_delete';
 
-    public function execute()
+    public function execute(): Redirect
     {
         $id = $this->getRequest()->getParam('id');
 

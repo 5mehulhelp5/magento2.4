@@ -5,6 +5,7 @@ namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\Page;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Registry;
 use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
@@ -19,7 +20,7 @@ class Edit extends Restaurant implements HttpGetActionInterface
         parent::__construct($context, $_coreRegistry);
     }
 
-    public function execute()
+    public function execute(): Page
     {
         $id = $this->getRequest()->getParam('id');
         $model = $this->_objectManager->create(\Stoyanov\Restaurant\Model\Restaurant::class);

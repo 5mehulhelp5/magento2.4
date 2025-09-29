@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Block\Restaurant;
 
-use Magento\Framework\View\Element\Template;
-use Stoyanov\Restaurant\Api\RestaurantManagerInterface;
+use Magento\Framework\{Exception\LocalizedException, View\Element\Template};
+use Stoyanov\Restaurant\{Api\Data\RestaurantInterface, Api\FormInterface, Api\RestaurantManagerInterface};
 
-class Delete extends Template
+
+class Delete extends Template implements FormInterface
 {
     public function __construct(
         Template\Context $context,
@@ -16,14 +17,22 @@ class Delete extends Template
         parent::__construct($context, $data);
     }
 
-    public function getFormAction()
+    /**
+     * @return string
+     */
+    public function getFormAction(): string
     {
         // URL for form submission (Save controller)
         $id = $this->getRequest()->getParam('id');
         return $this->getUrl('restaurants/restaurant/delete', ['id' => $id]);
     }
 
-    public function getRestaurant($id = null)
+    /**
+     * @param $id
+     * @return RestaurantInterface
+     * @throws LocalizedException
+     */
+    public function getRestaurant($id = null): RestaurantInterface
     {
         if (!$id) $id = (int) $this->getRequest()->getParam('id');
         $restaurant = $this->manager->getRestaurant($id);

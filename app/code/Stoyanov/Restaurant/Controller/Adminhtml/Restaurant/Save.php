@@ -5,11 +5,15 @@ namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\Result\Redirect;
+use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Registry;
 use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Stoyanov\Restaurant\Model\RestaurantFactory;
+use Stoyanov\Restaurant\Model\Restaurant as ModelRestaurant;
 use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
 
 class Save extends Restaurant implements HttpGetActionInterface
@@ -23,6 +27,10 @@ class Save extends Restaurant implements HttpGetActionInterface
     ) {
         parent::__construct($context, $coreRegistry);
     }
+
+    /**
+     * @return ResponseInterface|Redirect|ResultInterface|void
+     */
 
     public function execute()
     {
@@ -58,10 +66,7 @@ class Save extends Restaurant implements HttpGetActionInterface
         }
     }
 
-    /**
-     * @throws LocalizedException
-     */
-    private function processReturn($model, $data, $resultRedirect)
+    private function processReturn(ModelRestaurant $model, array $data, Redirect $resultRedirect): Redirect
     {
         $redirect = $data['back'] ?? 'close';
 

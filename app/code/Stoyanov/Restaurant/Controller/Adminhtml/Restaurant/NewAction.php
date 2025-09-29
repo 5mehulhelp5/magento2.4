@@ -7,6 +7,7 @@ use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Registry;
 use Magento\Backend\Model\View\Result\ForwardFactory;
+use Magento\Backend\Model\View\Result\Forward;
 use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 class NewAction extends Restaurant implements HttpGetActionInterface
@@ -19,7 +20,7 @@ class NewAction extends Restaurant implements HttpGetActionInterface
         parent::__construct($context, $coreRegistry);
     }
 
-    public function execute()
+    public function execute(): Forward
     {
         $resultForward = $this->resultForwardFactory->create();
         return $resultForward->forward('edit');

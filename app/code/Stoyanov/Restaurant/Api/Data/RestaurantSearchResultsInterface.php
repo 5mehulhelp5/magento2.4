@@ -11,14 +11,14 @@ interface RestaurantSearchResultsInterface extends SearchResultsInterface
     /**
      * Get restaurants list.
      *
-     * @return \Stoyanov\Restaurants\Api\Data\RestaurantInterface[]
+     * @return \Stoyanov\Restaurant\Api\Data\RestaurantInterface[]
      */
     public function getItems();
 
     /**
      * Set restaurants list.
      *
-     * @param \Stoyanov\Restaurants\Api\Data\RestaurantInterface[] $items
+     * @param \Stoyanov\Restaurant\Api\Data\RestaurantInterface[] $items
      * @return $this
      */
     public function setItems(array $items);

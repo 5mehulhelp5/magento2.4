@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Model;
 
-use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
-use Stoyanov\Restaurant\Model\ResourceModel\Restaurant as RestaurantResource;
-use Stoyanov\Restaurant\Api\Data\RestaurantInterface;
-use Magento\Framework\Api\SearchCriteriaInterface;
-use Stoyanov\Restaurant\Api\Data\RestaurantSearchResultsInterfaceFactory;
-use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
-use Magento\Framework\Api\SearchResults;
+use Stoyanov\Restaurant\{
+    Api\RestaurantRepositoryInterface,
+    Model\ResourceModel\Restaurant as RestaurantResource,
+    Api\Data\RestaurantSearchResultsInterfaceFactory,
+    Api\Data\RestaurantInterface,
+};
+use Magento\Framework\Api\{
+    SearchCriteria\CollectionProcessor,
+    SearchResults,
+    SearchCriteriaInterface,
+};
 
 class RestaurantRepository implements RestaurantRepositoryInterface
 {

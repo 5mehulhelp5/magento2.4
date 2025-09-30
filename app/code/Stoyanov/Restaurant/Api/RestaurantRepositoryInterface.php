@@ -3,10 +3,12 @@
 namespace Stoyanov\Restaurant\Api;
 
 use Stoyanov\Restaurant\Api\Data\RestaurantInterface;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Api\SearchResults;
+use Magento\Framework\{
+    Exception\LocalizedException,
+    Exception\NoSuchEntityException,
+    Api\SearchCriteriaInterface,
+    Api\SearchResults};
+
 interface RestaurantRepositoryInterface
 {
     /**

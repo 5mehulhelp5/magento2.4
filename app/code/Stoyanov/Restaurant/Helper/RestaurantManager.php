@@ -3,9 +3,13 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Helper;
 
-use Stoyanov\Restaurant\Api\{Data\RestaurantInterface, RestaurantManagerInterface, RestaurantRepositoryInterface};
-use Stoyanov\Restaurant\Model\ResourceModel\Restaurant;
-use Stoyanov\Restaurant\Model\ResourceModel\Restaurant\CollectionFactory;
+use Stoyanov\Restaurant\{
+    Api\Data\RestaurantInterface,
+    Api\RestaurantManagerInterface,
+    Api\RestaurantRepositoryInterface,
+    Model\ResourceModel\Restaurant,
+    Model\ResourceModel\Restaurant\CollectionFactory
+};
 
 class RestaurantManager implements RestaurantManagerInterface
 {

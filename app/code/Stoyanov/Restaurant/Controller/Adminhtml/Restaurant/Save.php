@@ -3,18 +3,23 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-use Magento\Backend\App\Action;
-use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\App\ResponseInterface;
-use Magento\Framework\Controller\Result\Redirect;
-use Magento\Framework\Controller\ResultInterface;
-use Magento\Framework\Registry;
-use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
-use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\Exception\LocalizedException;
-use Stoyanov\Restaurant\Model\RestaurantFactory;
-use Stoyanov\Restaurant\Model\Restaurant as ModelRestaurant;
-use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
+use Magento\{
+    Backend\App\Action,
+    Framework\App\Action\HttpGetActionInterface,
+    Framework\App\ResponseInterface,
+    Framework\App\Request\DataPersistorInterface,
+    Framework\Controller\Result\Redirect,
+    Framework\Controller\ResultInterface,
+    Framework\Registry,
+    Framework\Exception\LocalizedException
+
+};
+use Stoyanov\Restaurant\{
+    Controller\Adminhtml\Restaurant,
+    Model\RestaurantFactory,
+    Model\Restaurant as ModelRestaurant,
+    Api\RestaurantRepositoryInterface
+};
 
 class Save extends Restaurant implements HttpGetActionInterface
 {

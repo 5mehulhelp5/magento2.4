@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Block\Adminhtml\Page\Edit;
 
-use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
-use Magento\Ui\Component\Control\Container;
+use Magento\{Framework\View\Element\UiComponent\Control\ButtonProviderInterface, Ui\Component\Control\Container};
 
 class SaveButton extends GenericButton implements ButtonProviderInterface
 {

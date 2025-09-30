@@ -2,8 +2,7 @@
 
 namespace Stoyanov\Restaurant\Api;
 
-use Stoyanov\Restaurant\Api\Data\RestaurantInterface;
-use Stoyanov\Restaurant\Model\ResourceModel\Restaurant;
+use Stoyanov\Restaurant\{Api\Data\RestaurantInterface, Model\ResourceModel\Restaurant};
 
 interface RestaurantManagerInterface
 {

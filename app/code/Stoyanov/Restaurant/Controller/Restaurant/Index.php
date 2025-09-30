@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Restaurant;
 
-use Magento\Framework\App\Action\{Action, Context};
-use Magento\Framework\View\Result\{PageFactory, Page};
+use Magento\Framework\{
+    App\Action\Action,
+    App\Action\Context,
+    View\Result\PageFactory,
+    View\Result\Page
+};
 
 class Index extends Action
 {

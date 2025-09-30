@@ -6,7 +6,6 @@ namespace Stoyanov\Restaurant\Block\Restaurant;
 use Magento\Framework\{Exception\LocalizedException, View\Element\Template};
 use Stoyanov\Restaurant\{Api\Data\RestaurantInterface, Api\FormInterface, Api\RestaurantManagerInterface};
 
-
 class Delete extends Template implements FormInterface
 {
     public function __construct(

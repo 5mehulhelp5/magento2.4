@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Block\Restaurant;
 
-use Magento\Framework\View\Element\Template;
-use Stoyanov\Restaurant\Api\Data\RestaurantInterface;
-use Stoyanov\Restaurant\Api\RestaurantManagerInterface;
-use Stoyanov\Restaurant\Api\FormInterface;
-use Magento\Framework\Exception\LocalizedException;
+use Stoyanov\Restaurant\{
+    Api\Data\RestaurantInterface,
+    Api\RestaurantManagerInterface,
+    Api\FormInterface};
+use Magento\Framework\{Exception\LocalizedException, View\Element\Template};
 
 class Edit extends Template implements FormInterface
 {

@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Observer;
 
-use Magento\Framework\Event\Observer;
-use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\{Event\Observer, Event\ObserverInterface};
 use Psr\Log\LoggerInterface;
 
 class RestaurantCreatedObserver implements ObserverInterface

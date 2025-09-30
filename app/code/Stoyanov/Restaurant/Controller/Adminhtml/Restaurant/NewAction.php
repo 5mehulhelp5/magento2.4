@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-use Magento\Backend\App\Action;
-use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\Registry;
-use Magento\Backend\Model\View\Result\ForwardFactory;
-use Magento\Backend\Model\View\Result\Forward;
+use Magento\{
+    Backend\App\Action,
+    Framework\App\Action\HttpGetActionInterface,
+    Framework\Registry,
+    Backend\Model\View\Result\ForwardFactory,
+    Backend\Model\View\Result\Forward};
+
 use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 class NewAction extends Restaurant implements HttpGetActionInterface

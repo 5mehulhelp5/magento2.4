@@ -3,13 +3,15 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-use Magento\Framework\App\Action\HttpPostActionInterface;
-use Magento\Framework\Controller\ResultFactory;
-use Magento\Backend\App\Action\Context;
-use Magento\Ui\Component\MassAction\Filter;
+use Magento\{
+    Framework\App\Action\HttpPostActionInterface,
+    Framework\Controller\ResultFactory,
+    Backend\App\Action\Context,
+    Ui\Component\MassAction\Filter,
+    Backend\App\Action,
+    Backend\Model\View\Result\Redirect};
+
 use Stoyanov\Restaurant\Model\ResourceModel\Restaurant\CollectionFactory;
-use Magento\Backend\App\Action;
-use Magento\Backend\Model\View\Result\Redirect;
 /**
  * Class MassDelete
  */

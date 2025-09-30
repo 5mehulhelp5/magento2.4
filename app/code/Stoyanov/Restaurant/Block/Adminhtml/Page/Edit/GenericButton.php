@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Block\Adminhtml\Page\Edit;
 
-use Magento\Backend\Block\Widget\Context;
-use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\{Backend\Block\Widget\Context, Framework\Exception\NoSuchEntityException};
 use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
 
 class GenericButton

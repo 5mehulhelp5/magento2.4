@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Model;
 
-use Stoyanov\Restaurant\Api\RestaurantBuilderInterface;
-use Stoyanov\Restaurant\Api\Data\RestaurantInterface;
+use Stoyanov\Restaurant\{Api\RestaurantBuilderInterface, Api\Data\RestaurantInterface};
 
 class RestaurantBuilder implements RestaurantBuilderInterface
 {

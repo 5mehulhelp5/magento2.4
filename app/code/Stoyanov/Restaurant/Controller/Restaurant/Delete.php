@@ -3,12 +3,14 @@
 declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Restaurant;
-
-use Magento\Framework\App\Action\{Action, Context};
-use Magento\Framework\View\Result\{PageFactory, Page};
-use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
-use Stoyanov\Restaurant\Model\RestaurantFactory;
-use Magento\Backend\Model\View\Result\ForwardFactory;
+use Magento\{
+    Framework\App\Action\Action,
+    Framework\App\Action\Context,
+    Framework\View\Result\PageFactory,
+    Framework\View\Result\Page,
+    Backend\Model\View\Result\ForwardFactory
+};
+use Stoyanov\Restaurant\{Api\RestaurantRepositoryInterface, Model\RestaurantFactory};
 
 class Delete extends Action
 {

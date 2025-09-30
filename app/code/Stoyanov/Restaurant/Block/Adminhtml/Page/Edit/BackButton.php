@@ -2,9 +2,10 @@
 declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Block\Adminhtml\Page\Edit;
+
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class BackButton  extends GenericButton implements ButtonProviderInterface
+class BackButton extends GenericButton implements ButtonProviderInterface
 {
     /**
      * @return array

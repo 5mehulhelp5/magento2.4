@@ -4,10 +4,11 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 use Magento\Backend\App\Action;
-use Magento\Framework\View\Result\PageFactory;
-use Magento\Framework\View\Result\Page;
-use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\Registry;
+use Magento\Framework\{
+    View\Result\PageFactory,
+    View\Result\Page,
+    App\Action\HttpGetActionInterface,
+    Registry};
 use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 class Edit extends Restaurant implements HttpGetActionInterface

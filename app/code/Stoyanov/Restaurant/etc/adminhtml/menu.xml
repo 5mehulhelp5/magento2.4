@@ -4,8 +4,9 @@
         <add id="Stoyanov_Restaurant::restaurant"
              title="Restaurants"
              module="Stoyanov_Restaurant"
+             parent="Magento_Backend::content"
              sortOrder="50"
-             resource="Stoyanov_Restaurant::restaurant"/>
+             resource="Stoyanov_Restaurant::stoyanov"/>
 
         <add id="Stoyanov_Restaurant::restaurant_view"
              title="View Restaurants"

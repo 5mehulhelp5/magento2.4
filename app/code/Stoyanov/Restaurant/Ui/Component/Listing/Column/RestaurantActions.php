@@ -9,7 +9,6 @@ use Magento\Ui\Component\Listing\Columns\Column;
 class RestaurantActions extends Column
 {
     const URL_PATH_EDIT   = 'restaurants/restaurant/edit';
-    const URL_PATH_DELETE = 'restaurants/restaurant/delete';
 
     public function __construct(
         \Magento\Framework\View\Element\UiComponent\ContextInterface $context,
@@ -37,17 +36,6 @@ class RestaurantActions extends Column
                             ),
                             'label' => __('Edit')
                         ],
-                        'delete' => [
-                            'href'    => $this->urlBuilder->getUrl(
-                                self::URL_PATH_DELETE,
-                                ['id' => $item['entity_id']]
-                            ),
-                            'label'   => __('Delete'),
-                            'confirm' => [
-                                'title'   => __('Delete Restaurant'),
-                                'message' => __('Are you sure you want to delete the restaurant "%1"?', $item['name'])
-                            ]
-                        ]
                     ];
                 }
             }

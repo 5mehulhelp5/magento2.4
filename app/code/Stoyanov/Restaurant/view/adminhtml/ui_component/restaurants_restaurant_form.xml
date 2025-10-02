@@ -1,82 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">restaurants_restaurant_form.restaurants_restaurant_form_data_source</item>
+<!--            first part - take the namespace-->
+<!--            second part - take dataSource name-->
+            <item name="provider" xsi:type="string">restaurants_restaurant_form
+                .stoyanov_restaurant_restaurant_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">General Information</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
     <settings>
         <buttons>
-            <button name="save" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\SaveButton"/>
-            <button name="delete" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\DeleteButton"/>
-            <button name="back" class="Stoyanov\Restaurant\Block\Adminhtml\Page\Edit\BackButton"/>
+            <button name="save" class="Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button\Save"/>
+            <button name="delete" class="Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button\Delete"/>
         </buttons>
+<!--        take filename for this value-->
         <namespace>restaurants_restaurant_form</namespace>
         <dataScope>data</dataScope>
         <deps>
-            <dep>restaurants_restaurant_form.restaurants_restaurant_form_data_source</dep>
+            <dep>restaurants_restaurant_form.stoyanov_restaurant_restaurant_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="restaurants_restaurant_form_data_source">
+    <dataSource name="stoyanov_restaurant_restaurant_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
         <settings>
-            <submitUrl path="restaurants/restaurant/save"/>
+<!--                <submitUrl path="restaurants/restaurant/save"/>-->
+            <submitUrl path="*/*/save" />
         </settings>
-        <dataProvider class="Stoyanov\Restaurant\Ui\Component\Edit\DataProvider" name="restaurants_restaurant_form_data_source">
+        <dataProvider class="Stoyanov\Restaurant\Ui\Component\Edit\DataProvider" name="stoyanov_restaurant_restaurant_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>entity_id</primaryFieldName>
             </settings>
         </dataProvider>
     </dataSource>
-    <fieldset name="general">
-        <field name="entity_id" formElement="input">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">restaurant</item>
-                </item>
-            </argument>
+    <fieldset name="stoyanov_restaurant_restaurant_fieldset">
+        <settings>
+            <label />
+        </settings>
+        <field name="entity_id" formElement="hidden" />
+        <field name="name" formElement="input">
             <settings>
-                <dataType>text</dataType>
-                <visible>false</visible>
-                <dataScope>entity_id</dataScope>
+                <label translate="true">Name</label>
             </settings>
         </field>
-        <field name="name">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Name</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="dataScope" xsi:type="string">name</item>
-                </item>
-            </argument>
+        <field name="capacity" formElement="input">
+            <settings>
+                <label translate="true">Capacity</label>
+            </settings>
         </field>
-        <field name="capacity">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Capacity</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="dataScope" xsi:type="string">capacity</item>
-                </item>
-            </argument>
-        </field>
-        <field name="location">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Location</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="dataScope" xsi:type="string">location</item>
-                </item>
-            </argument>
+        <field name="location" formElement="input">
+            <settings>
+                <label translate="true">Location</label>
+            </settings>
         </field>
     </fieldset>
 </form>

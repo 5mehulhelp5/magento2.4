@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Stoyanov\Restaurant\Block\Adminhtml\Page\Edit;
+namespace Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button;
 
 use Magento\{Backend\Block\Widget\Context, Framework\Exception\NoSuchEntityException};
 use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
 
-class GenericButton
+class Generic
 {
 
     /**

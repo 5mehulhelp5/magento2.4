@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Stoyanov\Restaurant\Block\Adminhtml\Page\Edit;
+namespace Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class DeleteButton  extends GenericButton implements ButtonProviderInterface
+class Delete  extends Generic implements ButtonProviderInterface
 {
     /**
      * @return array

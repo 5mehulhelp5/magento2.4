@@ -13,6 +13,8 @@ use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 class Edit extends Restaurant implements HttpGetActionInterface
 {
+    const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_save';
+
     public function __construct(
         protected Action\Context $context,
         protected PageFactory $resultPageFactory,

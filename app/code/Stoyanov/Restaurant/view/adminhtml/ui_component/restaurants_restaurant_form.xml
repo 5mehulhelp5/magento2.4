@@ -12,6 +12,7 @@
     </argument>
     <settings>
         <buttons>
+            <button name="back" class="Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button\Back"/>
             <button name="save" class="Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button\Save"/>
             <button name="delete" class="Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button\Delete"/>
         </buttons>
@@ -47,16 +48,25 @@
         <field name="name" formElement="input">
             <settings>
                 <label translate="true">Name</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
             </settings>
         </field>
         <field name="capacity" formElement="input">
             <settings>
                 <label translate="true">Capacity</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
             </settings>
         </field>
         <field name="location" formElement="input">
             <settings>
                 <label translate="true">Location</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
             </settings>
         </field>
     </fieldset>

@@ -7,30 +7,25 @@ use Magento\Backend\App\Action;
 use Magento\Framework\{
     View\Result\PageFactory,
     View\Result\Page,
-    App\Action\HttpGetActionInterface,
-    Registry};
-use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
+    App\Action\HttpGetActionInterface
+};
 
-class Index extends Restaurant implements HttpGetActionInterface
+class Index extends Action implements HttpGetActionInterface
 {
-    const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_view';
-
+    const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant';
     public function __construct(
         Action\Context $context,
         protected PageFactory $resultPageFactory,
-        protected Registry $coreRegistry,
     ) {
-        parent::__construct($context, $coreRegistry);
+        parent::__construct($context);
     }
 
     public function execute(): Page
     {
-        $resultPage = $this->resultPageFactory->create();
-        $this->initPage($resultPage)->getConfig()->getTitle()->prepend(__('Restaurants'));
+        $page = $this->resultPageFactory->create();
+        $page->setActiveMenu('Stoyanov_Restaurant::restaurant_view');
+        $page->getConfig()->getTitle()->prepend(__('Restaurants'));
 
-        $dataPersistor = $this->_objectManager->get(\Magento\Framework\App\Request\DataPersistorInterface::class);
-        $dataPersistor->clear('stoyanov_restaurant');
-
-        return $resultPage;
+        return $page;
     }
 }

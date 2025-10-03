@@ -7,47 +7,27 @@ use Magento\Backend\App\Action;
 use Magento\Framework\{
     View\Result\PageFactory,
     View\Result\Page,
-    App\Action\HttpGetActionInterface,
-    Registry};
-use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
+    App\Action\HttpGetActionInterface
+};
 
-class Edit extends Restaurant implements HttpGetActionInterface
+class Edit extends Action implements HttpGetActionInterface
 {
     const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_save';
 
     public function __construct(
         protected Action\Context $context,
         protected PageFactory $resultPageFactory,
-        protected Registry $_coreRegistry
     ) {
-        parent::__construct($context, $_coreRegistry);
+        parent::__construct($context);
     }
 
     public function execute(): Page
     {
-        $id = $this->getRequest()->getParam('id');
-        $model = $this->_objectManager->create(\Stoyanov\Restaurant\Model\Restaurant::class);
+        $page = $this->resultPageFactory->create();
 
-        if ($id) {
-            $model->load($id);
-            if (!$model->getId()) {
-                $this->messageManager->addErrorMessage(__('This restaurant no longer exists.'));
-                $resultRedirect = $this->resultRedirectFactory->create();
-                return $resultRedirect->setPath('*/*/');
-            }
-        }
-        $this->_coreRegistry->register('stoyanov_restaurant', $model);
+        $page->setActiveMenu('Stoyanov_Restaurant::restaurant_view');
+        $page->getConfig()->getTitle()->prepend(__('Edit Restaurant'));
 
-        // 5. Build edit form
-        $resultPage = $this->resultPageFactory->create();
-        $this->initPage($resultPage)->addBreadcrumb(
-            $id ? __('Edit Restaurant') : __('New Restaurant'),
-            $id ? __('Edit Restaurant') : __('New Restaurant')
-        );
-
-        $resultPage->getConfig()->getTitle()->prepend(__('Restaurants'));
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getName() : __('New Restaurant'));
-
-        return $resultPage;
+        return $page;
     }
 }

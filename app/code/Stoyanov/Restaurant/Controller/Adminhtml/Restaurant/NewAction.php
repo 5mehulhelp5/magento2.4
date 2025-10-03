@@ -9,10 +9,7 @@ use Magento\{
     Framework\Registry,
     Backend\Model\View\Result\ForwardFactory,
     Backend\Model\View\Result\Forward};
-
-use Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
-
-class NewAction extends Restaurant implements HttpGetActionInterface
+class NewAction extends Action implements HttpGetActionInterface
 {
     public function __construct(
         protected Action\Context $context,

@@ -14,6 +14,6 @@
              sortOrder="10"
              parent="Stoyanov_Restaurant::restaurant"
              action="restaurants/restaurant/index"
-             resource="Stoyanov_Restaurant::stoyanov"/>
+             resource="Stoyanov_Restaurant::restaurant"/>
     </menu>
 </config>

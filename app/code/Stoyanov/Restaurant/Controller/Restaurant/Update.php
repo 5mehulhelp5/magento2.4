@@ -18,7 +18,8 @@ class Update extends Action
         Context $context,
         private PageFactory $pageFactory,
         private RequestRestaurantInterface $requestRestaurant
-    ) {
+    )
+    {
         parent::__construct($context);
     }
 

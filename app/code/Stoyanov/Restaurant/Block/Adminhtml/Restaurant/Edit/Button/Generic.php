@@ -16,7 +16,8 @@ class Generic
     public function __construct(
         protected Context $context,
         protected RestaurantRepositoryInterface $restaurantRepository
-    ) {
+    )
+    {
     }
 
     /**

@@ -8,6 +8,9 @@ use Stoyanov\Restaurant\Model\{Restaurant, RestaurantFactory};
 
 class RestaurantTest extends TestCase
 {
+    /**
+     * @var Restaurant
+     */
     private $restaurantFactory;
 
     protected function setUp(): void
@@ -46,5 +49,4 @@ class RestaurantTest extends TestCase
         $restaurantModel->setCapacity(150);
         $restaurantModel->setLocation('Sofia');
     }
-
 }

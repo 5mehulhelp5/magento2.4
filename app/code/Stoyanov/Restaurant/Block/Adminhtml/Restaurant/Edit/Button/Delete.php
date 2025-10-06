@@ -18,10 +18,10 @@ class Delete  extends Generic implements ButtonProviderInterface
                 'label' => __('Delete Restaurant'),
                 'class' => 'delete',
                 'on_click' => 'deleteConfirm(\'' . __(
-                        'Are you sure you want to do this?'
-                    ) . '\', \'' . $this->getDeleteUrl() . '\', {"data": {}})',
-                'sort_order' => 20,
-            ];
+                    'Are you sure you want to do this?'
+                    ) .
+                    '\', \''
+                    . $this->getDeleteUrl() . '\', {"data": {}})', 'sort_order' => 20];
         }
         return $data;
     }

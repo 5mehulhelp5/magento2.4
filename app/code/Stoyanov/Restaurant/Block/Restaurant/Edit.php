@@ -15,7 +15,8 @@ class Edit extends Template implements FormInterface
         Template\Context $context,
         private RestaurantManagerInterface $manager,
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $data);
     }
 

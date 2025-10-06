@@ -20,7 +20,8 @@ class Create extends Action
         private PageFactory $pageFactory,
         private RequestRestaurantInterface $requestRestaurant,
         private ManagerInterface $eventManager
-    ) {
+    )
+    {
         parent::__construct($context);
     }
 

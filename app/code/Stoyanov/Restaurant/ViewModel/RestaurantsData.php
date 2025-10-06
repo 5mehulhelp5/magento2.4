@@ -16,7 +16,8 @@ class RestaurantsData implements ArgumentInterface
         private RestaurantManagerInterface $manager,
         private RequestInterface $request,
         private Data $data,
-    ) {
+    )
+    {
     }
 
     /**

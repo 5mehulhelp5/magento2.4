@@ -20,13 +20,13 @@
     </settings>
     <dataSource name="restaurants_restaurant_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
+            <updateUrl path="mui/index/render"/>
             <storageConfig>
                 <param name="indexField" xsi:type="string">entity_id</param>
             </storageConfig>
-            <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>Stoyanov_Restaurant::restaurant_view</aclResource>
-        <dataProvider class="Stoyanov\Restaurant\Ui\Component\RestaurantDataProvider" name="restaurants_restaurant_listing_data_source">
+        <aclResource>Stoyanov_Restaurant::restaurant</aclResource>
+        <dataProvider name="restaurants_restaurant_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>entity_id</primaryFieldName>
@@ -138,7 +138,18 @@
                 <label translate="true">Location</label>
             </settings>
         </column>
-
+        <column name="created_at" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <label translate="true">Created at</label>
+                <filter>dateRange</filter>
+            </settings>
+        </column>
+        <column name="updated_at" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <label translate="true">Updated at</label>
+                <filter>dateRange</filter>
+            </settings>
+        </column>
         <actionsColumn name="actions" class="Stoyanov\Restaurant\Ui\Component\Listing\Column\RestaurantActions"/>
 
     </columns>

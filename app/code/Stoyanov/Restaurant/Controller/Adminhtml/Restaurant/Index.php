@@ -16,14 +16,15 @@ class Index extends Action implements HttpGetActionInterface
     public function __construct(
         Action\Context $context,
         protected PageFactory $resultPageFactory,
-    ) {
+    )
+    {
         parent::__construct($context);
     }
 
     public function execute(): Page
     {
         $page = $this->resultPageFactory->create();
-        $page->setActiveMenu('Stoyanov_Restaurant::restaurant_view');
+        $page->setActiveMenu('Stoyanov_Restaurant::restaurant');
         $page->getConfig()->getTitle()->prepend(__('Restaurants'));
 
         return $page;

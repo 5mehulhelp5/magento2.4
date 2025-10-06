@@ -29,7 +29,11 @@ class MassDelete extends  Action implements HttpPostActionInterface
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory
      */
-    public function __construct(protected Context $context, protected Filter $filter, protected CollectionFactory $collectionFactory)
+    public function __construct(
+        protected Context $context, protected
+        Filter $filter, protected
+        CollectionFactory $collectionFactory
+    )
     {
         parent::__construct($context);
     }

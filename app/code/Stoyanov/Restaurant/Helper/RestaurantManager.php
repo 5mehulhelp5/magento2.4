@@ -17,7 +17,8 @@ class RestaurantManager implements RestaurantManagerInterface
         private RestaurantRepositoryInterface $restaurantRepository,
         private CollectionFactory             $collectionFactory,
         private Data $data
-    ) {
+    )
+    {
     }
 
     /**

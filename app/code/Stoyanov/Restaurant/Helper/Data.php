@@ -12,8 +12,9 @@ class Data extends AbstractHelper
     const XML_PATH_RESTAURANTS = 'restaurants_settings/general/';
 
     public function __construct(
-        private Context                       $context
-    ) {
+        private Context $context
+    )
+    {
         parent::__construct($context);
     }
 

@@ -15,4 +15,17 @@
                 type="Stoyanov\Restaurant\Helper\RequestRestaurant"/>
     <preference for="Stoyanov\Restaurant\Api\RestaurantManagerInterface"
                 type="Stoyanov\Restaurant\Helper\RestaurantManager"/>
+    <virtualType name="Stoyanov\Restaurant\Model\ResourceModel\Restaurant\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">restaurants</argument>
+            <argument name="resourceModel" xsi:type="string">Stoyanov\Restaurant\Model\ResourceModel\Restaurant</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="restaurants_restaurant_listing_data_source" xsi:type="string">Stoyanov\Restaurant\Model\ResourceModel\Restaurant\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

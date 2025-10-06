@@ -4,8 +4,8 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::content">
-                    <resource id="Stoyanov_Restaurant::stoyanov" title="Restaurant" translate="title" sortOrder="900">
-                        <resource id="Stoyanov_Restaurant::restaurant" title="FAQs" translate="title">
+                    <resource id="Stoyanov_Restaurant::stoyanov" title="Stoyanov" translate="title" sortOrder="900">
+                        <resource id="Stoyanov_Restaurant::restaurant" title="Restaurants" translate="title">
                             <resource id="Stoyanov_Restaurant::restaurant_save" title="Save" translate="title"/>
                             <resource id="Stoyanov_Restaurant::restaurant_delete" title="Delete" translate="title"/>
                         </resource>

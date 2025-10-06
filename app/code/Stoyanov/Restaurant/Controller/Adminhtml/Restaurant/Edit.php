@@ -17,7 +17,8 @@ class Edit extends Action implements HttpGetActionInterface
     public function __construct(
         protected Action\Context $context,
         protected PageFactory $resultPageFactory,
-    ) {
+    )
+    {
         parent::__construct($context);
     }
 

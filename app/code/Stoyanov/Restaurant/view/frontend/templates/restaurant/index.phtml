@@ -1,5 +1,5 @@
 <h1><?= __('Our Restaurants') ?></h1>
-<?php $viewModel = $this->getViewModelRestaurantsdata(); ?>
+<?php $viewModel = $block->getViewModelRestaurantsdata(); ?>
 <?php if (is_object($viewModel)): ?>
     <?php foreach ($viewModel->getRestaurants() as $restaurant) : ?>
         <?php if ($restaurant->getName()): ?>
@@ -19,25 +19,25 @@
             <p><b><?= $restaurant->getCreatedAt() ?></b></p>
         <?php endif; ?>
         <p>
-            <a href="<?= $this->getUrl('restaurants/restaurant/edit', ['id' => $restaurant->getId()]) ?>">
+            <a href="<?= $block->getUrl('restaurants/restaurant/edit', ['id' => $restaurant->getId()]) ?>">
             <?= __('Edit') ?>
             </a>
         </p>
         <p>
-            <a href="<?= $this->getUrl('restaurants/restaurant/delete', ['id' => $restaurant->getId()]) ?>">
+            <a href="<?= $block->getUrl('restaurants/restaurant/delete', ['id' => $restaurant->getId()]) ?>">
                 <?= __('Delete') ?>
             </a>
         </p>
     -------------------------------------------------------
     <?php endforeach; ?>
     <p>
-        <a href="<?= $this->getUrl('restaurants/restaurant/create') ?>"><?= __('Create a new restaurant') ?></a>
+        <a href="<?= $block->getUrl('restaurants/restaurant/create') ?>"><?= __('Create a new restaurant') ?></a>
     </p>
 
     <?php if($viewModel->showPaging()) : ?>
         <div class="paging">
-            <a href="?p=<?php echo $viewModel->getPrevPage();  ?>"><?= __('Prev page') ?></a>
-            <a href="?p=<?php echo $viewModel->getNextPage(); ?>"><?= __('Next page') ?></a>
+            <a href="?p=<?= $viewModel->getPrevPage();  ?>"><?= __('Prev page') ?></a>
+            <a href="?p=<?= $viewModel->getNextPage(); ?>"><?= __('Next page') ?></a>
         </div>
     <?php endif; ?>
 

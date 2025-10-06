@@ -8,7 +8,7 @@ use Stoyanov\Restaurant\Model\ResourceModel\Restaurant\CollectionFactory;
 
 class DataProvider extends AbstractDataProvider
 {
-    protected $loadedData;
+    protected array $loadedData;
 
     public function __construct(
         $name,
@@ -17,7 +17,8 @@ class DataProvider extends AbstractDataProvider
         CollectionFactory $collectionFactory,
         array $meta = [],
         array $data = []
-    ) {
+    )
+    {
         $this->collection = $collectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }

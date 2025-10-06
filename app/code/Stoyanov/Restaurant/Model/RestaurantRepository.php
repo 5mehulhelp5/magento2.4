@@ -23,7 +23,8 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         private RestaurantResource $restaurantResource,
         private RestaurantSearchResultsInterfaceFactory $searchResultsFactory,
         private CollectionProcessor $collectionProcessor
-    ) {
+    )
+    {
     }
 
     /**

@@ -20,7 +20,8 @@ class Delete extends Action
         private RestaurantRepositoryInterface $repository,
         private RestaurantFactory $factory,
         private ForwardFactory $forward
-    ) {
+    )
+    {
         parent::__construct($context);
     }
 

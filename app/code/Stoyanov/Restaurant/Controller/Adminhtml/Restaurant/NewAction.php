@@ -15,7 +15,8 @@ class NewAction extends Action implements HttpGetActionInterface
         protected Action\Context $context,
         protected ForwardFactory $resultForwardFactory,
         protected Registry $coreRegistry,
-    ) {
+    )
+    {
         parent::__construct($context, $coreRegistry);
     }
 

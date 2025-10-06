@@ -16,7 +16,8 @@ class RestaurantActions extends Column
         protected UrlInterface $urlBuilder,
         array $components = [],
         array $data = []
-    ) {
+    )
+    {
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
@@ -25,8 +26,8 @@ class RestaurantActions extends Column
      */
     public function prepareDataSource(array $dataSource)
     {
-        if (isset($dataSource['data'])) {
-            foreach ($dataSource['data'] as &$item) {
+        if (isset($dataSource['data']['items'])) {
+            foreach ($dataSource['data']['items'] as &$item) {
                 if (isset($item['entity_id'])) {
                     $item[$this->getData('name')] = [
                         'edit' => [

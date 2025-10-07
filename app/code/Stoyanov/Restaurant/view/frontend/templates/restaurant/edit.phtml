@@ -6,7 +6,7 @@
 /** @var $block \Stoyanov\Restaurant\Block\Restaurant\Edit */
     $restaurant = $block->getRestaurant();
 ?>
-<form action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+<form action="<?= $escaper->escapeUrl($block->getFormAction()) ?>"
       method="post"
       data-mage-init='{"validation":{}}'>
 
@@ -17,7 +17,7 @@
     <div>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name"
-               value="<?= $block->escapeHtml($restaurant->getName()) ?>" required/>
+               value="<?= $escaper->escapeHtml($restaurant->getName()) ?>" required/>
     </div>
 
     <div>
@@ -29,7 +29,7 @@
     <div>
         <label for="location">Location:</label>
         <input type="text" name="location" id="location"
-               value="<?= $block->escapeHtml($restaurant->getLocation()) ?>" required/>
+               value="<?= $escaper->escapeHtml($restaurant->getLocation()) ?>" required/>
     </div>
 
     <button type="submit">Save</button>

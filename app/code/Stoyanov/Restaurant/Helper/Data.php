@@ -3,21 +3,22 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Helper;
 
-use Magento\Framework\App\Helper\{Context, AbstractHelper};
+use Magento\Framework\App\Helper\AbstractHelper;
 
 use Magento\Store\Model\ScopeInterface;
 
 class Data extends AbstractHelper
 {
-    const XML_PATH_RESTAURANTS = 'restaurants_settings/general/';
+    public const string XML_PATH_RESTAURANTS = 'restaurants_settings/general/';
 
-    public function __construct(
-        private Context $context
-    )
-    {
-        parent::__construct($context);
-    }
-
+    /**
+     * Get Config Value
+     *
+     * @param string $field
+     * @param $storeId
+     *
+     * @return mixed
+     */
     public function getConfigValue(string $field, $storeId = null): mixed
     {
         return $this->scopeConfig->getValue(

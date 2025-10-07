@@ -3,8 +3,8 @@
 </p>
 <h1><?= __('Create a new restaurant') ?></h1>
 
-<form action="<?= $this->getUrl('restaurants/restaurant/create') ?>" method="post" data-mage-init='{"validation":{}}' enctype="multipart/form-data">
-    <input type="hidden" name="form_key" value="<?= $this->getFormKey(); ?>" />
+<form action="<?= $block->getUrl('restaurants/restaurant/create') ?>" method="post" data-mage-init='{"validation":{}}' enctype="multipart/form-data">
+    <input type="hidden" name="form_key" value="<?= $block->getFormKey(); ?>" />
     <p>
         <label><?= __('Name') ?></label>
         <input required="true" name="name" type="text">

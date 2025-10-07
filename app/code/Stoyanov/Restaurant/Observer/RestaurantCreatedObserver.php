@@ -3,15 +3,27 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Observer;
 
-use Magento\Framework\{Event\Observer, Event\ObserverInterface};
+use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
 use Psr\Log\LoggerInterface;
 
 class RestaurantCreatedObserver implements ObserverInterface
 {
-    public function __construct(private LoggerInterface $logger)
-    {
+    /**
+     * @param LoggerInterface $logger
+     */
+    public function __construct(
+        private LoggerInterface $logger
+    ) {
     }
 
+    /**
+     * Execute action
+     *
+     * @param Observer $observer
+     *
+     * @return void
+     */
     public function execute(Observer $observer): void
     {
         // Get data from event
@@ -24,6 +36,4 @@ class RestaurantCreatedObserver implements ObserverInterface
             $restaurant['capacity'] . ' | Location: ' . $restaurant['location']
         );
     }
-
-
 }

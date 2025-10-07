@@ -9,8 +9,14 @@ use Stoyanov\Restaurant\Model\ResourceModel\Restaurant as ResourceModel;
 
 class Collection extends AbstractCollection
 {
+    /** @var string  Main table primary key value */
     protected $_idFieldName = 'entity_id';
 
+    /**
+     *
+     * @return void
+     *
+     */
     protected function _construct()
     {
         $this->_init(

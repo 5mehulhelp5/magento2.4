@@ -4,23 +4,30 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 use Magento\Backend\App\Action;
-use Magento\Framework\{
-    View\Result\PageFactory,
-    View\Result\Page,
-    App\Action\HttpGetActionInterface
-};
+use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\Page;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 
 class Index extends Action implements HttpGetActionInterface
 {
-    const ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant';
+    public const string ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant';
+
+    /**
+     * @param Action\Context $context
+     * @param PageFactory $resultPageFactory
+     */
     public function __construct(
         Action\Context $context,
         protected PageFactory $resultPageFactory,
-    )
-    {
+    ) {
         parent::__construct($context);
     }
 
+    /**
+     * Index restaurant action
+     *
+     * @return Page
+     */
     public function execute(): Page
     {
         $page = $this->resultPageFactory->create();

@@ -1,7 +1,7 @@
 <h1><?= __('Our Restaurants') ?></h1>
 <?php $viewModel = $block->getViewModelRestaurantsdata(); ?>
 <?php if (is_object($viewModel)): ?>
-    <?php foreach ($viewModel->getRestaurants() as $restaurant) : ?>
+    <?php foreach ($viewModel->getRestaurants() as $restaurant): ?>
         <?php if ($restaurant->getName()): ?>
             <p><?= __('Name') ?></p>
             <p><b><?= $restaurant->getName() ?></b></p>
@@ -34,7 +34,7 @@
         <a href="<?= $block->getUrl('restaurants/restaurant/create') ?>"><?= __('Create a new restaurant') ?></a>
     </p>
 
-    <?php if($viewModel->showPaging()) : ?>
+    <?php if ($viewModel->showPaging()): ?>
         <div class="paging">
             <a href="?p=<?= $viewModel->getPrevPage();  ?>"><?= __('Prev page') ?></a>
             <a href="?p=<?= $viewModel->getNextPage(); ?>"><?= __('Next page') ?></a>

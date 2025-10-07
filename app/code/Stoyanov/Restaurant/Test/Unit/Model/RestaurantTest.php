@@ -4,7 +4,8 @@ declare(strict_types=1);
 namespace Stoyanov\Restaurant\Test\Unit\Model;
 
 use PHPUnit\Framework\TestCase;
-use Stoyanov\Restaurant\Model\{Restaurant, RestaurantFactory};
+use Stoyanov\Restaurant\Model\Restaurant;
+use Stoyanov\Restaurant\Model\RestaurantFactory;
 
 class RestaurantTest extends TestCase
 {

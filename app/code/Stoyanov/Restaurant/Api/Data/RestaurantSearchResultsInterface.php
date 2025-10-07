@@ -19,6 +19,7 @@ interface RestaurantSearchResultsInterface extends SearchResultsInterface
      * Set restaurants list.
      *
      * @param \Stoyanov\Restaurant\Api\Data\RestaurantInterface[] $items
+     *
      * @return $this
      */
     public function setItems(array $items);

@@ -7,6 +7,11 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 class Save extends Generic implements ButtonProviderInterface
 {
+    /**
+     * Get Button Data
+     *
+     * @return array
+     */
     public function getButtonData()
     {
         return [

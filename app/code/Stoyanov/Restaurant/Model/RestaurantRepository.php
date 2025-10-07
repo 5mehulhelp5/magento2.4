@@ -4,31 +4,35 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Model;
 
-use Stoyanov\Restaurant\{
-    Api\RestaurantRepositoryInterface,
-    Model\ResourceModel\Restaurant as RestaurantResource,
-    Api\Data\RestaurantSearchResultsInterfaceFactory,
-    Api\Data\RestaurantInterface,
-};
-use Magento\Framework\Api\{
-    SearchCriteria\CollectionProcessor,
-    SearchResults,
-    SearchCriteriaInterface,
-};
+use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
+use Stoyanov\Restaurant\Model\ResourceModel\Restaurant as RestaurantResource;
+use Stoyanov\Restaurant\Api\Data\RestaurantSearchResultsInterfaceFactory;
+use Stoyanov\Restaurant\Api\Data\RestaurantInterface;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessor;
+use Magento\Framework\Api\SearchResults;
+use Magento\Framework\Api\SearchCriteriaInterface;
 
 class RestaurantRepository implements RestaurantRepositoryInterface
 {
+    /**
+     * @param RestaurantFactory $restaurantFactory
+     * @param RestaurantResource $restaurantResource
+     * @param RestaurantSearchResultsInterfaceFactory $searchResultsFactory
+     * @param CollectionProcessor $collectionProcessor
+     */
     public function __construct(
         private RestaurantFactory $restaurantFactory,
         private RestaurantResource $restaurantResource,
         private RestaurantSearchResultsInterfaceFactory $searchResultsFactory,
         private CollectionProcessor $collectionProcessor
-    )
-    {
+    ) {
     }
 
     /**
+     * Save Restaurant action
+     *
      * @param RestaurantInterface $restaurant
+     *
      * @return RestaurantInterface
      */
     public function save(RestaurantInterface $restaurant): RestaurantInterface
@@ -41,6 +45,13 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant;
     }
 
+    /**
+     * Get Restaurant by id action
+     *
+     * @param int $id
+     *
+     * @return RestaurantInterface
+     */
     public function getById(int $id): RestaurantInterface
     {
         $restaurant = $this->restaurantFactory->create();
@@ -51,6 +62,13 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return $restaurant;
     }
 
+    /**
+     * Delete Restaurant  action
+     *
+     * @param RestaurantInterface $restaurant
+     *
+     * @return bool
+     */
     public function delete(RestaurantInterface $restaurant): bool
     {
         try {
@@ -61,11 +79,27 @@ class RestaurantRepository implements RestaurantRepositoryInterface
         return true;
     }
 
+    /**
+     * Delete Restaurant by id action
+     *
+     * @param int $id
+     *
+     * @return bool
+     */
     public function deleteById(int $id): bool
     {
         return $this->delete($this->getById($id));
     }
 
+    /**
+     * Get Search Results List action
+     *
+     * @param SearchCriteriaInterface $searchCriteria
+     *
+     * @return SearchResults
+     *
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function getSearchResultsList(SearchCriteriaInterface $searchCriteria): SearchResults
     {
         $collection = $this->restaurantFactory->create()->getCollection();

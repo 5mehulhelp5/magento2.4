@@ -5,9 +5,8 @@ namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpGetActionInterface;
-use Magento\Framework\Registry;
-use Magento\Backend\Model\View\Result\ForwardFactory;
-use Magento\Backend\Model\View\Result\Forward;
+use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\Page;
 
 class NewAction extends Action implements HttpGetActionInterface
 {
@@ -15,25 +14,25 @@ class NewAction extends Action implements HttpGetActionInterface
 
     /**
      * @param Action\Context $context
-     * @param ForwardFactory $resultForwardFactory
-     * @param Registry $coreRegistry
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
         protected Action\Context $context,
-        protected ForwardFactory $resultForwardFactory,
-        protected Registry $coreRegistry,
+        protected PageFactory $resultPageFactory
     ) {
-        parent::__construct($context, $coreRegistry);
+        parent::__construct($context);
     }
 
     /**
      * New restaurant action
      *
-     * @return Forward
+     * @return Page
      */
-    public function execute(): Forward
+    public function execute(): Page
     {
-        $resultForward = $this->resultForwardFactory->create();
-        return $resultForward->forward('edit');
+        $page = $this->resultPageFactory->create();
+        $page->setActiveMenu('Stoyanov_Restaurant::restaurant');
+        $page->getConfig()->getTitle()->prepend(__('New Restaurant'));
+        return $page;
     }
 }

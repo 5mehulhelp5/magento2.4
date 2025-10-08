@@ -26,5 +26,9 @@
                 comment="Created At"/>
         <column xsi:type="timestamp" name="updated_at" nullable="false"
                 default="CURRENT_TIMESTAMP" on_update="true" comment="Updated At"/>
+
+        <index referenceId="STOYANOV_RESTAURANT_RESTAURANT_NAME" indexType="fulltext">
+            <column name="name"/>
+        </index>
     </table>
 </schema>

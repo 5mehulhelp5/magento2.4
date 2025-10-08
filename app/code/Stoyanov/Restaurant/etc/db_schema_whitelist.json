@@ -16,6 +16,9 @@
         },
         "constraint": {
             "PRIMARY": true
+        },
+        "index": {
+            "RESTAURANTS_NAME": true
         }
     }
 }

@@ -3,72 +3,37 @@ declare(strict_types=1);
 
 namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 
-use Magento\{
-    Backend\App\Action,
-    Framework\App\Action\HttpGetActionInterface,
-    Framework\App\ResponseInterface,
-    Framework\App\Request\DataPersistorInterface,
-    Framework\Controller\Result\Redirect,
-    Framework\Controller\ResultInterface,
-    Framework\Registry,
-    Framework\Exception\LocalizedException
+use Magento\Backend\App\Action;
+use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\Controller\ResultFactory;
 
-};
-use Stoyanov\Restaurant\{
-    Controller\Adminhtml\Restaurant,
-    Model\RestaurantFactory,
-    Model\Restaurant as ModelRestaurant,
-    Api\RestaurantRepositoryInterface
-};
-
-class Save extends Restaurant implements HttpGetActionInterface
+class Save extends Action implements HttpGetActionInterface
 {
+    public const string ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_save';
+
+    /**
+     * @param Context $context
+     */
     public function __construct(
-        protected Action\Context $context,
-        protected Registry $coreRegistry,
-        protected DataPersistorInterface $dataPersistor,
-        private ?RestaurantFactory $restaurantFactory,
-        private ?RestaurantRepositoryInterface $restaurantRepository
+        Context $context,
     ) {
-        parent::__construct($context, $coreRegistry);
+        parent::__construct($context);
     }
 
     /**
      * @return ResponseInterface|Redirect|ResultInterface|void
      */
 
-    public function execute()
+    public function execute(): Redirect
     {
-        $resultRedirect = $this->resultRedirectFactory->create();
-        $data = $this->getRequest()->getPostValue();
-        if ($data) {
-            if (empty($data['entity_id'])) {
-                $data['entity_id'] = null;
-            }
-            $model = $this->restaurantFactory->create();
-            $id = $this->getRequest()->getParam('id');
-            if ($id) {
-                try {
-                    $model = $this->restaurantRepository->getById($id);
-                } catch (LocalizedException $e) {
-                    $this->messageManager->addErrorMessage(__('This Restaurant no longer exists.'));
-                    return $resultRedirect->setPath('*/*/');
-                }
-            }
-
-        }
-        $model->setData($data);
-
-        try {
-            $this->restaurantRepository->save($model);
-            $this->messageManager->addSuccessMessage(__('You saved the restaurant.'));
-            $this->dataPersistor->clear('stoyanov_restaurant');
-            return $this->processReturn($model, $data, $resultRedirect);
-        } catch (LocalizedException $e) {
-            $this->messageManager->addErrorMessage($e->getMessage());
-        } catch (\Exception $e) {
-            $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the block.'));
-        }
+        //TODO FIX SAVE ACTION FROM NEW ACTION AND EDIT PAGE SUBMIT FORM
+        //TODO IMPLEMENT SAVE Restaurant logic for edit or new forms
+        var_dump("SAVE METHOD WORKS");
+        die;
+        $redirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+        return $redirect->setPath('*/*/index');
     }
 
     private function processReturn(ModelRestaurant $model, array $data, Redirect $resultRedirect): Redirect

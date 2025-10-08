@@ -6,7 +6,7 @@ namespace Stoyanov\Restaurant\Controller\Adminhtml\Restaurant;
 use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Controller\Result\Redirect;
-use Stoyanov\Restaurant\Api\RestaurantRepositoryInterface;
+use Stoyanov\Restaurant\Api\RestaurantManagerInterface;
 
 class Delete extends Action implements HttpPostActionInterface
 {
@@ -14,11 +14,11 @@ class Delete extends Action implements HttpPostActionInterface
 
     /**
      * @param Action\Context $context
-     * @param RestaurantRepositoryInterface $repository
+     * @param RestaurantManagerInterface $manager
      */
     public function __construct(
         protected Action\Context $context,
-        private RestaurantRepositoryInterface $repository,
+        private RestaurantManagerInterface $manager,
     ) {
         parent::__construct($context);
     }
@@ -35,7 +35,7 @@ class Delete extends Action implements HttpPostActionInterface
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
-                $this->repository->deleteById($id);
+                $this->manager->deleteRestaurant($id);
                 $this->messageManager->addSuccessMessage(__('The restaurant has been deleted.'));
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {

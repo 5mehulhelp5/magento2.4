@@ -30,8 +30,8 @@
             </item>
         </argument>
         <settings>
-<!--                <submitUrl path="restaurants/restaurant/save"/>-->
-            <submitUrl path="*/*/save" />
+            <submitUrl path="restaurants/restaurant/save"/>
+<!--        <submitUrl path="*/*/save" />-->
         </settings>
         <dataProvider class="Stoyanov\Restaurant\Ui\Component\Edit\DataProvider" name="stoyanov_restaurant_restaurant_data_source">
             <settings>

@@ -34,8 +34,8 @@ class RequestRestaurant implements RequestRestaurantInterface
      */
     public function createOrUpdate(array $data): mixed
     {
-        if (!empty($data["id"])) {
-            $this->manager->deleteRestaurant((int) $data["id"]);
+        if (!empty($data["entity_id"])) {
+            $this->manager->deleteRestaurant((int) $data["entity_id"]);
         }
         $restaurant = $this->build($data);
         $response = $this->restaurantRepository->save($restaurant);

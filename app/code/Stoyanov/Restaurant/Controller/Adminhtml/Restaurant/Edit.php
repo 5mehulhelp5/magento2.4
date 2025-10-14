@@ -23,7 +23,6 @@ class Edit extends Action implements HttpGetActionInterface
         parent::__construct($context);
     }
 
-
     /**
      * Edit restaurant action
      *

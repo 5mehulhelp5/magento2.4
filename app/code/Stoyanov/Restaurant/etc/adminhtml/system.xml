@@ -52,6 +52,26 @@
                     <comment>Set restaurants per page number</comment>
                     <validate>validate-digits</validate>
                 </field>
+                <field id="api_URL"
+                       translate="label"
+                       type="text"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>API URL</label>
+                    <comment>API location</comment>
+                </field>
+                <field id="api_token"
+                       translate="label"
+                       type="text"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>API Token</label>
+                    <comment> REST API token</comment>
+                </field>
             </group>
         </section>
     </system>

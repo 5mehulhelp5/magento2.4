@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+<!--            first part - take the namespace-->
+<!--            second part - take dataSource name-->
+            <item name="provider" xsi:type="string">restaurants_user_register_form.stoyanov_restaurant_user_data_source</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button\Back"/>
+            <button name="save" class="Stoyanov\Restaurant\Block\Adminhtml\Restaurant\Edit\Button\Save"/>
+        </buttons>
+<!--        take filename for this value-->
+        <namespace>restaurants_user_register_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>restaurants_user_register_form.stoyanov_restaurant_user_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="stoyanov_restaurant_user_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="restaurants/restaurant/saveProfile"/>
+<!--        <submitUrl path="*/*/save" />-->
+        </settings>
+        <dataProvider class="Stoyanov\Restaurant\Ui\Component\Edit\DataProvider" name="stoyanov_restaurant_user_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="stoyanov_restaurant_user_fieldset">
+        <settings>
+            <label />
+        </settings>
+        <field name="name" formElement="input">
+            <settings>
+                <label translate="true">Name</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="email" formElement="input">
+            <settings>
+                <label translate="true">Email</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="password" formElement="input">
+            <settings>
+                <label translate="true">Password</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>

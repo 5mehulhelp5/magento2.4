@@ -8,6 +8,7 @@
                         <resource id="Stoyanov_Restaurant::restaurant" title="Restaurants" translate="title">
                             <resource id="Stoyanov_Restaurant::restaurant_save" title="Save" translate="title"/>
                             <resource id="Stoyanov_Restaurant::restaurant_delete" title="Delete" translate="title"/>
+                            <resource id="Stoyanov_Restaurant::restaurant_user" title="Save" translate="title"/>
                         </resource>
                     </resource>
                 </resource>

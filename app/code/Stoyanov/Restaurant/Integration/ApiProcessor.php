@@ -19,7 +19,7 @@ abstract class ApiProcessor
      *
      * @param array $data
      *
-     * @return mixed
+     * @return bool
      */
     abstract public function createProfile(array $data): bool;
 
@@ -32,4 +32,13 @@ abstract class ApiProcessor
      * @return Curl
      */
     abstract public function getClient(bool $useToken, $token = null): Curl;
+
+    /**
+     * login Profile
+     *
+     * @param array $data
+     *
+     * @return bool
+     */
+    abstract public function loginProfile(array $data): bool;
 }

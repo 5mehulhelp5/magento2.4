@@ -7,21 +7,29 @@ use Magento\Framework\HTTP\Client\CurlFactory;
 use Magento\Framework\HTTP\Client\Curl;
 use Psr\Log\LoggerInterface;
 use Stoyanov\Restaurant\Helper\Data;
+use Magento\Framework\App\Config\Storage\WriterInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class LaravelApiProcessor extends ApiProcessor
 {
     /** @var string get user register form link */
     public const string API_REGISTER_URL = "/api/register";
 
+    /** @var string get user login form link */
+    public const string API_LOGIN_URL = "/api/login";
+
+
     /**
      * @param LoggerInterface $logger
      * @param CurlFactory $curlFactory
      * @param Data $data
+     * @param WriterInterface $configWriter
      */
     public function __construct(
         private LoggerInterface $logger,
         private CurlFactory $curlFactory,
-        private Data $data
+        private Data $data,
+        private WriterInterface $configWriter
     ) {
     }
 
@@ -46,7 +54,10 @@ class LaravelApiProcessor extends ApiProcessor
     {
         try {
             $client = $this->getClient(false);
-            $client->post($this->getApiUrl() . self::API_REGISTER_URL, json_encode($this->prepareData($data)));
+            $client->post(
+                $this->getApiUrl() . self::API_REGISTER_URL,
+                    json_encode($this->prepareRegisterData($data))
+            );
             if ($client->getStatus() === 201) {
                 $this->logger->info('The new API profile was created!');
             }
@@ -102,13 +113,13 @@ class LaravelApiProcessor extends ApiProcessor
     }
 
     /**
-     * Prepare data
+     * Prepare Register Data
      *
      * @param array $data
      *
      * @return array
      */
-    private function prepareData(array $data)
+    private function prepareRegisterData(array $data): array
     {
         $apiData = [];
         if (!empty($data['name'])) {
@@ -124,4 +135,54 @@ class LaravelApiProcessor extends ApiProcessor
         return $apiData;
     }
 
+    /**
+     * Prepare Login Data
+     *
+     * @param array $data
+     *
+     * @return array
+     */
+    private function prepareLoginData(array $data): array
+    {
+        $apiData = [];
+        if (!empty($data['email'])) {
+            $apiData['email'] = $data['email'];
+        }
+        if (!empty($data['password'])) {
+            $apiData['password'] = $data['password'];
+        }
+        return $apiData;
+    }
+
+    /**
+     * Login Profile
+     *
+     * @param array $data
+     * @return bool
+     */
+    public function loginProfile(array $data): bool
+    {
+        try {
+            $client = $this->getClient(false);
+            $client->post(
+                $this->getApiUrl() . self::API_LOGIN_URL,
+                json_encode($this->prepareLoginData($data))
+            );
+            if ($client->getStatus() === 200) {
+                $response = json_decode($client->getBody(), true);
+                $token = $response['token'];
+                $this->configWriter->save(
+                    'restaurants_settings/general/api_token',
+                    $token,
+                    ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
+                    0
+                );
+                return true;
+            }
+            return false;
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+        }
+        return false;
+    }
 }

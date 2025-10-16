@@ -10,10 +10,10 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Stoyanov\Restaurant\Integration\LaravelApiProcessor;
 
-class SaveProfile extends Action implements HttpPostActionInterface
+class SaveLogin extends Action implements HttpPostActionInterface
 {
 
-    public const string ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_user';
+    public const string ADMIN_RESOURCE = 'Stoyanov_Restaurant::restaurant_login';
 
     /**
      * @param Context $context
@@ -33,12 +33,13 @@ class SaveProfile extends Action implements HttpPostActionInterface
      */
     public function execute(): Redirect
     {
+
         $post = $this->getRequest()->getPost()->toArray();
-        if ($this->laravelApiProcessor->createProfile($post)) {
-            $this->messageManager->addSuccess(__('The new API profile was created!'));
+        if ($this->laravelApiProcessor->loginProfile($post)) {
+            $this->messageManager->addSuccess(__('The new API profile was logged in!'));
         }
 
         $redirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        return $redirect->setPath('*/*/login');
+        return $redirect->setPath('*/*/index');
     }
 }

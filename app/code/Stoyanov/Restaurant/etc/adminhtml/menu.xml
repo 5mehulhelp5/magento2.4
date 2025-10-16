@@ -23,5 +23,13 @@
              parent="Stoyanov_Restaurant::restaurant"
              action="restaurants/restaurant/register"
              resource="Stoyanov_Restaurant::restaurant"/>
+
+        <add id="Stoyanov_Restaurant::user_login"
+             title="Login API profile"
+             module="Stoyanov_Restaurant"
+             sortOrder="30"
+             parent="Stoyanov_Restaurant::restaurant"
+             action="restaurants/restaurant/login"
+             resource="Stoyanov_Restaurant::restaurant"/>
     </menu>
 </config>

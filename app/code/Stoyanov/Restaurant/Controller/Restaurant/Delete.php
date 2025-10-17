@@ -13,7 +13,12 @@ use Stoyanov\Restaurant\Api\RestaurantManagerInterface;
 
 class Delete extends Action
 {
-
+    /**
+     * @param Context $context
+     * @param PageFactory $pageFactory
+     * @param RestaurantManagerInterface $manager
+     * @param ForwardFactory $forward
+     */
     public function __construct(
         Context $context,
         private PageFactory $pageFactory,

@@ -9,6 +9,7 @@ use Stoyanov\Restaurant\Api\Data\RestaurantInterface;
 class Restaurant extends AbstractModel implements RestaurantInterface
 {
     /**
+     * Model class
      *
      * @return void
      *

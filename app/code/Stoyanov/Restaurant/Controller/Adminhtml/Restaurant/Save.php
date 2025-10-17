@@ -18,6 +18,7 @@ class Save extends Action implements HttpPostActionInterface
     /**
      * @param Context $context
      * @param RequestRestaurantInterface $requestRestaurant
+     * @param ManagerInterface $eventManager
      */
     public function __construct(
         private Context $context,
@@ -28,6 +29,7 @@ class Save extends Action implements HttpPostActionInterface
     }
 
     /**
+     * Save Restaurant
      *
      * @return Redirect
      */

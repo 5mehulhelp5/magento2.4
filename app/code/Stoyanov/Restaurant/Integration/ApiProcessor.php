@@ -10,9 +10,11 @@ abstract class ApiProcessor
     /**
      * Create Restaurant
      *
-     * @return mixed
+     * @param array $data
+     *
+     * @return bool
      */
-    abstract public function createRestaurant();
+    abstract public function createRestaurant(array $data): bool;
 
     /**
      * Create Profile
@@ -34,7 +36,7 @@ abstract class ApiProcessor
     abstract public function getClient(bool $useToken, $token = null): Curl;
 
     /**
-     * login Profile
+     * Login Profile
      *
      * @param array $data
      *

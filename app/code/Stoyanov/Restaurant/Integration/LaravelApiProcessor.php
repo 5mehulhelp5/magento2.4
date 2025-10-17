@@ -18,6 +18,8 @@ class LaravelApiProcessor extends ApiProcessor
     /** @var string get user login form link */
     public const string API_LOGIN_URL = "/api/login";
 
+    /** @var string get restaurant's API link */
+    private const string API_RESTAURANT_URL = "/api/restaurants";
 
     /**
      * @param LoggerInterface $logger
@@ -36,11 +38,27 @@ class LaravelApiProcessor extends ApiProcessor
     /**
      * Create Restaurant
      *
-     * @return void
+     * @param array $data
+     *
+     * @return bool
      */
-    public function createRestaurant()
+    public function createRestaurant(array $data): bool
     {
-        // TODO: Implement createRestaurant() method.
+        try {
+            $client = $this->getClient(true, $this->getApiToken());
+            $client->post(
+                $this->getApiUrl() . self::API_RESTAURANT_URL,
+                json_encode($this->prepareRestaurantData($data))
+            );
+            if ($client->getStatus() === 201) {
+                $this->logger->info('The new Restaurant was created!');
+                return true;
+            }
+            return false;
+        } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
+        }
+        return false;
     }
 
     /**
@@ -54,10 +72,7 @@ class LaravelApiProcessor extends ApiProcessor
     {
         try {
             $client = $this->getClient(false);
-            $client->post(
-                $this->getApiUrl() . self::API_REGISTER_URL,
-                    json_encode($this->prepareRegisterData($data))
-            );
+            $client->post($this->getApiUrl() . self::API_REGISTER_URL, json_encode($this->prepareRegisterData($data)));
             if ($client->getStatus() === 201) {
                 $this->logger->info('The new API profile was created!');
             }
@@ -85,7 +100,7 @@ class LaravelApiProcessor extends ApiProcessor
         if ($useToken) {
             $curl->addHeader(
                 "authorization",
-                "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InFEQURDb2Y1TnNkWUt3MDFPY3MwWSJ9.eyJpc3MiOiJodHRwczovL2Rldi0tMDc0ZWQ3ci51cy5hdXRoMC5jb20vIiwic3ViIjoiNDlaUG5yMTZFUEdqQ0tGV0o5eG9GMEV1WFBjRmdRNk5AY2xpZW50cyIsImF1ZCI6Imh0dHA6Ly9sYXJhdmVsbG9jYWwuY29tL2FwaS9mbGlnaHRzIiwiaWF0IjoxNjQ2ODI4OTMwLCJleHAiOjE2NDY5MTUzMzAsImF6cCI6IjQ5WlBucjE2RVBHakNLRldKOXhvRjBFdVhQY0ZnUTZOIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.A_GBPHfoSzjieXHrrz-dv8b80wmbOjy11lldKhhb2f2xZmw6kUZkPG6MyAJFP9X3GrYOqqqSAH_bnX-iRSXaMvlYXTI6DnM0QPJDJY1YpAbqioI-eMH-mDchTAAkKvl1ASbOiD56tPjYCcssqqngFTxc9bNFlLgK8SiagQ1EAWNjMmoJ1WSmM5AklQ4yPo85VwzKD-_30G8aQbyJPHrDJgarbk95hsy_R8Z13Tg28n0bnUynwOeEiyL9H6OS_XZMNHtEJx-9MHg6u8EbZLQiibr4XP2717ZxOQLmzkxfi6LQN5mefEFaCS2sa-b6DdMqv4aeX4IU8VvO2bAQyOZr2g"
+                "Bearer " . $this->getApiToken()
             );
             return $curl;
         }
@@ -184,5 +199,27 @@ class LaravelApiProcessor extends ApiProcessor
             $this->logger->error($e->getMessage());
         }
         return false;
+    }
+
+    /**
+     * Prepare Restaurant Data
+     *
+     * @param array $data
+     *
+     * @return array
+     */
+    private function prepareRestaurantData(array $data): array
+    {
+        $apiData = [];
+        if (!empty($data['name'])) {
+            $apiData['name'] = $data['name'];
+        }
+        if (!empty($data['location'])) {
+            $apiData['location'] = $data['location'];
+        }
+        if (!empty($data['capacity'])) {
+            $apiData['capacity'] = $data['capacity'];
+        }
+        return $apiData;
     }
 }

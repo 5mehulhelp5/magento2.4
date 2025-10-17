@@ -14,9 +14,9 @@ class Restaurant extends AbstractDb
     public const string ID_FIELD_NAME = 'entity_id';
 
     /**
+     * Resource Model class
      *
      * @return void
-     *
      */
     protected function _construct()
     {

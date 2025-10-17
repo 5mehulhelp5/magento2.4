@@ -13,9 +13,9 @@ class Collection extends AbstractCollection
     protected $_idFieldName = 'entity_id';
 
     /**
+     * Collection class
      *
      * @return void
-     *
      */
     protected function _construct()
     {
